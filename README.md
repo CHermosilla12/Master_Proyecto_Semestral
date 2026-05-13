@@ -18,7 +18,7 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 | Proveedores | Instancia_2:8082 | ProveedoresDB | CRUD de Proveedores | https://github.com/CHermosilla12/proveedorservice |
 | Carrito     | Instancia_2:8083     | CarritoDB     | CRUD de Carrito | https://github.com/CHermosilla12/carritoservice |
 | Carta       | Instancia_2:8084       | CartaDB   | CRUD de Carta |
-| Torneos     | Instancia_3:8080     | TorneoDB   | CRUD de Subasta |
+| Torneos     | Instancia_3:8080     | TorneoDB   | CRUD de Torneo |
 | Subasta     | Instancia_3:8081     | SubastaDB | CRUD de Subasta |
 | Venta   | Instancia_3:8082       | VentaDB | CRUD de Venta  |
 
