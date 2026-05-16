@@ -25,4 +25,7 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 ### Despliegue Técnico
 - **Instancias** 3 instancias de AWS EC2 t3.large (Ubuntu 24.04)
 - **Comando de inicio:** `docker compose up -d` en cada carpeta de modulo
+### Extra
+-antes de inciar nuevamente los docker realizar un `docker compose down` en cada parte de modulo para que no quede con datos antiguos que pueden afectar 
+al levantamiento 
 
