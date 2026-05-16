@@ -9,7 +9,7 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 | :--- | :--- | :--- | :--- |  :--- |
 | Usuario     | Instancia_1:8080     | UsuarioDB     | CRUD de Usuario | https://github.com/Felipex360x/ms-usuario |
 | Comprador   | Instancia_1:8084   | CompradorDB   | CRUD de Comprador | https://github.com/Felipex360x/ms-comprador |
-| Vendedor    | Instancia_1:8085    | VendedorDB    | CRUD de Vendedor|
+| Vendedor    | Instancia_1:8085    | VendedorDB    | CRUD de Vendedor| https://github.com/Felipex360x/ms-vendedor |
 | Repartidor | Intancia_1:8083 | RepartidorDB | CRUD de Repartidor | https://github.com/Felipex360x/ms-repartidor |
 | Vehiculo    | Instancia_1:8082    | VehiculoDB    | CRUD de Vehiculo | https://github.com/Felipex360x/ms-vehiculo |
 | Envios      | Instancia_1:8081      | EnviosDB      | CRUD de Envios |
