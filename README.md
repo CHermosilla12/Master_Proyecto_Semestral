@@ -34,7 +34,11 @@ al levantamiento
 |---|---|---|---|---|
 | Producto | Carrito | GET | /api/productos/{id} | ProductoDTO |
 | Tienda | Torneo | GET | /api/v2/tienda/{/id} | TiendaDTO |
-| | | | | |
+| Comprador|Usuario|Get |/api/v2/compradores/{id}| CompradorDTO |
+| Vendedor|Usuario|Get |/api/v2/vendedores/{id}| VendedorDTO |
+| Repartidor|Usuario|Get |/api/v2/repartidores/{id}| RepartidorDTO |
+| Vehiculo|Repartidor|Get |/api/v2/repartidores/{id}| RepartidorDTO |
+
 
 ### Tecnología utilizada
 - Cliente REST: **Feign Client** (justificación: elimina el código repetitivo al permitirte declarar la comunicación HTTP mediante interfaces simples anotadas, abstrayéndote por completo de configurar URLs o serializaciones manuales.)
