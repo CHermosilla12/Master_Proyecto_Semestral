@@ -3,9 +3,6 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 
 # Proyecto Semestral: NextCard
 
-
-# Proyecto Semestral: NextCard
-
 ... [secciones existentes del Hito 1.5] ...
 
 ## 🔗 Comunicación entre microservicios (Hito 2)
