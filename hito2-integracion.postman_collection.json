@@ -22,13 +22,13 @@
           }
         },
         "url": {
-          "raw": "http://44.204.24.19:8080/api/productos/auto",
+          "raw": "http://107.20.197.43:8080/api/productos/auto",
           "protocol": "http",
           "host": [
-            "44",
-            "204",
-            "24",
-            "19"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8080",
           "path": [
@@ -55,13 +55,13 @@
               }
             },
             "url": {
-              "raw": "http://44.204.24.19:8083/api/carrito",
+              "raw": "http://107.20.197.43:8083/api/carrito",
               "protocol": "http",
               "host": [
-                "44",
-                "204",
-                "24",
-                "19"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8083",
               "path": [
@@ -72,8 +72,15 @@
           },
           "status": "Created",
           "code": 201,
-          "_postman_previewlanguage": "",
-          "header": [],
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
           "cookie": [
             {
               "expires": "Invalid Date",
@@ -100,13 +107,13 @@
           }
         },
         "url": {
-          "raw": "http://44.204.24.19:8083/api/carrito",
+          "raw": "http://107.20.197.43:8083/api/carrito",
           "protocol": "http",
           "host": [
-            "44",
-            "204",
-            "24",
-            "19"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8083",
           "path": [
@@ -132,13 +139,13 @@
               }
             },
             "url": {
-              "raw": "http://44.204.24.19:8083/api/carrito",
+              "raw": "http://107.20.197.43:8083/api/carrito",
               "protocol": "http",
               "host": [
-                "44",
-                "204",
-                "24",
-                "19"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8083",
               "path": [
@@ -149,8 +156,15 @@
           },
           "status": "Created",
           "code": 201,
-          "_postman_previewlanguage": "",
-          "header": [],
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
           "cookie": [
             {
               "expires": "Invalid Date",
@@ -158,7 +172,7 @@
               "path": ""
             }
           ],
-          "body": "{\r\n    \"id\": 5,\r\n    \"productos\": [\r\n        {\r\n            \"productoId\": 7,\r\n            \"nombre\": \"Display Box: Pokémon TCG - Crown Zenith\",\r\n            \"precio\": 57990,\r\n            \"cantidad\": 1,\r\n            \"subtotal\": 57990\r\n        },\r\n        {\r\n            \"productoId\": 8,\r\n            \"nombre\": \"Pikachu EX\",\r\n            \"precio\": 150000,\r\n            \"cantidad\": 2,\r\n            \"subtotal\": 300000\r\n        }\r\n    ]\r\n}"
+          "body": "{\n    \"id\": 5,\n    \"productos\": [\n        {\n            \"productoId\": 7,\n            \"nombre\": \"Display Box: Pokémon TCG - Crown Zenith\",\n            \"precio\": 57990,\n            \"cantidad\": 1,\n            \"subtotal\": 57990\n        },\n        {\n            \"productoId\": 8,\n            \"nombre\": \"Pikachu EX\",\n            \"precio\": 150000,\n            \"cantidad\": 2,\n            \"subtotal\": 300000\n        }\n    ]\n}"
         }
       ]
     },
@@ -177,13 +191,13 @@
           }
         },
         "url": {
-          "raw": "http://44.204.24.19:8083/api/carrito",
+          "raw": "http://107.20.197.43:8083/api/carrito",
           "protocol": "http",
           "host": [
-            "44",
-            "204",
-            "24",
-            "19"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8083",
           "path": [
@@ -209,13 +223,13 @@
               }
             },
             "url": {
-              "raw": "http://44.204.24.19:8083/api/carrito",
+              "raw": "http://107.20.197.43:8083/api/carrito",
               "protocol": "http",
               "host": [
-                "44",
-                "204",
-                "24",
-                "19"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8083",
               "path": [
@@ -226,8 +240,15 @@
           },
           "status": "Not Found",
           "code": 404,
-          "_postman_previewlanguage": "",
-          "header": [],
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
           "cookie": [
             {
               "expires": "Invalid Date",
@@ -235,7 +256,7 @@
               "path": ""
             }
           ],
-          "body": "{\r\n    \"mensaje\": \"Producto no encontrado en el Catálogo con ID: 4\",\r\n    \"error\": \"Recurso no encontrado\",\r\n    \"timestamp\": \"2026-05-17T01:48:51.992124212\",\r\n    \"status\": 404\r\n}"
+          "body": "{\n    \"mensaje\": \"Producto no encontrado en el Catálogo con ID: 4\",\n    \"error\": \"Recurso no encontrado\",\n    \"timestamp\": \"2026-05-17T01:48:51.992124212\",\n    \"status\": 404\n}"
         }
       ]
     },
@@ -257,13 +278,13 @@
           }
         },
         "url": {
-          "raw": "http://44.204.24.19:8083/api/carrito",
+          "raw": "http://107.20.197.43:8083/api/carrito",
           "protocol": "http",
           "host": [
-            "44",
-            "204",
-            "24",
-            "19"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8083",
           "path": [
@@ -289,13 +310,13 @@
               }
             },
             "url": {
-              "raw": "http://44.204.24.19:8083/api/carrito",
+              "raw": "http://107.20.197.43:8083/api/carrito",
               "protocol": "http",
               "host": [
-                "44",
-                "204",
-                "24",
-                "19"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8083",
               "path": [
@@ -306,8 +327,15 @@
           },
           "status": "Service Unavailable",
           "code": 503,
-          "_postman_previewlanguage": "",
-          "header": [],
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
           "cookie": [
             {
               "expires": "Invalid Date",
@@ -315,7 +343,7 @@
               "path": ""
             }
           ],
-          "body": "{\r\n    \"mensaje\": \"El servicio de Catálogo de productos no se encuentra disponible actualmente.\",\r\n    \"error\": \"Servicio no disponible\",\r\n    \"timestamp\": \"2026-05-17T01:53:44.501069855\",\r\n    \"status\": 503\r\n}"
+          "body": "{\n    \"mensaje\": \"El servicio de Catálogo de productos no se encuentra disponible actualmente.\",\n    \"error\": \"Servicio no disponible\",\n    \"timestamp\": \"2026-05-17T01:53:44.501069855\",\n    \"status\": 503\n}"
         }
       ]
     },
@@ -325,13 +353,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://44.204.24.19:8080/api/productos/4",
+          "raw": "http://107.20.197.43:8080/api/productos/4",
           "protocol": "http",
           "host": [
-            "44",
-            "204",
-            "24",
-            "19"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8080",
           "path": [
@@ -349,13 +377,13 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "http://44.204.24.19:8080/api/productos/4",
+              "raw": "http://107.20.197.43:8080/api/productos/4",
               "protocol": "http",
               "host": [
-                "44",
-                "204",
-                "24",
-                "19"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8080",
               "path": [
@@ -367,8 +395,15 @@
           },
           "status": "Not Found",
           "code": 404,
-          "_postman_previewlanguage": "",
-          "header": [],
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
           "cookie": [
             {
               "expires": "Invalid Date",
@@ -376,7 +411,7 @@
               "path": ""
             }
           ],
-          "body": "{\r\n    \"mensaje\": \"Producto no encontrado con id: 4\",\r\n    \"error\": \"Producto no encontrado\"\r\n}"
+          "body": "{\n    \"mensaje\": \"Producto no encontrado con id: 4\",\n    \"error\": \"Producto no encontrado\"\n}"
         }
       ]
     },
@@ -395,13 +430,13 @@
           }
         },
         "url": {
-          "raw": "http://44.204.24.19:8082/api/proveedores/",
+          "raw": "http://107.20.197.43:8082/api/proveedores/",
           "protocol": "http",
           "host": [
-            "44",
-            "204",
-            "24",
-            "19"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8082",
           "path": [
@@ -428,13 +463,13 @@
               }
             },
             "url": {
-              "raw": "http://44.204.24.19:8082/api/proveedores/auto",
+              "raw": "http://107.20.197.43:8082/api/proveedores/auto",
               "protocol": "http",
               "host": [
-                "44",
-                "204",
-                "24",
-                "19"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8082",
               "path": [
@@ -446,8 +481,15 @@
           },
           "status": "Created",
           "code": 201,
-          "_postman_previewlanguage": "",
-          "header": [],
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
           "cookie": [
             {
               "expires": "Invalid Date",
@@ -455,7 +497,7 @@
               "path": ""
             }
           ],
-          "body": "{\r\n    \"id\": 2,\r\n    \"nombre\": \"Distribuidora Central S.A.\",\r\n    \"direccion\": \"Av. Nueva Providencia 1881, Oficina 510\",\r\n    \"telefono\": \"+56912345678\",\r\n    \"email\": \"contacto@distribuidoracentral.cl\",\r\n    \"producto\": \"Deckbox y playmats genericas\"\r\n}"
+          "body": "{\n    \"id\": 2,\n    \"nombre\": \"Distribuidora Central S.A.\",\n    \"direccion\": \"Av. Nueva Providencia 1881, Oficina 510\",\n    \"telefono\": \"+56912345678\",\n    \"email\": \"contacto@distribuidoracentral.cl\",\n    \"producto\": \"Deckbox y playmats genericas\"\n}"
         }
       ]
     },
@@ -465,13 +507,13 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://100.53.102.196:8082/api/proveedores/99",
+          "raw": "http://107.20.197.43:8082/api/proveedores/99",
           "protocol": "http",
           "host": [
-            "100",
-            "53",
-            "102",
-            "196"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8082",
           "path": [
@@ -504,13 +546,13 @@
               }
             },
             "url": {
-              "raw": "http://100.53.102.196:8082/api/proveedores/99",
+              "raw": "http://107.20.197.43:8082/api/proveedores/99",
               "protocol": "http",
               "host": [
-                "100",
-                "53",
-                "102",
-                "196"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8082",
               "path": [
@@ -522,8 +564,15 @@
           },
           "status": "Not Found",
           "code": 404,
-          "_postman_previewlanguage": "",
-          "header": [],
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
           "cookie": [
             {
               "expires": "Invalid Date",
@@ -531,7 +580,7 @@
               "path": ""
             }
           ],
-          "body": "{\r\n    \"mensaje\": \"Proveedor no encontrado con ID: 99\",\r\n    \"error\": \"Not Found\",\r\n    \"timestamp\": \"2026-05-17T03:19:42.389614480\",\r\n    \"status\": 404\r\n}"
+          "body": "{\n    \"mensaje\": \"Proveedor no encontrado con ID: 99\",\n    \"error\": \"Not Found\",\n    \"timestamp\": \"2026-05-17T03:19:42.389614480\",\n    \"status\": 404\n}"
         }
       ]
     },
@@ -550,13 +599,13 @@
           }
         },
         "url": {
-          "raw": "http://44.203.150.199:8081/api/v2/tienda/auto",
+          "raw": "http://107.20.197.43:8081/api/v2/tienda/auto",
           "protocol": "http",
           "host": [
-            "44",
-            "203",
-            "150",
-            "199"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8081",
           "path": [
@@ -584,13 +633,13 @@
               }
             },
             "url": {
-              "raw": "http://44.203.150.199:8081/api/v2/tienda/auto",
+              "raw": "http://107.20.197.43:8081/api/v2/tienda/auto",
               "protocol": "http",
               "host": [
-                "44",
-                "203",
-                "150",
-                "199"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8081",
               "path": [
@@ -601,8 +650,15 @@
               ]
             }
           },
-          "_postman_previewlanguage": "",
-          "header": [],
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
           "cookie": [
             {
               "expires": "Invalid Date",
@@ -610,7 +666,7 @@
               "path": ""
             }
           ],
-          "body": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Tienda Central Gaming\",\r\n    \"ubicacion\": \"Av. Providencia 1234, Santiago\",\r\n    \"horario\": \"Lunes a Viernes 09:00 - 20:00\",\r\n    \"cant_Empleados\": 12\r\n}"
+          "body": "{\n    \"id\": 1,\n    \"nombre\": \"Tienda Central Gaming\",\n    \"ubicacion\": \"Av. Providencia 1234, Santiago\",\n    \"horario\": \"Lunes a Viernes 09:00 - 20:00\",\n    \"cant_Empleados\": 12\n}"
         }
       ]
     },
@@ -632,20 +688,20 @@
           }
         },
         "url": {
-          "raw": "http://44.203.150.199:8081/api/v2/tienda/99",
+          "raw": "http://107.20.197.43:8081/api/v2/tienda/1",
           "protocol": "http",
           "host": [
-            "44",
-            "203",
-            "150",
-            "199"
+            "107",
+            "20",
+            "197",
+            "43"
           ],
           "port": "8081",
           "path": [
             "api",
             "v2",
             "tienda",
-            "99"
+            "1"
           ]
         },
         "description": "PRE-CONDICIÓN\r\nEl modulo de Tienda debe estar levantado y funcionando correctamente\r\nEl recurso a solicitar no existe en la base de datos\r\n\r\nRespuesta Esperada\r\nHTTP STATUS 404 NOT FOUND"
@@ -666,13 +722,13 @@
               }
             },
             "url": {
-              "raw": "http://44.203.150.199:8081/api/v2/tienda/99",
+              "raw": "http://107.20.197.43:8081/api/v2/tienda/99",
               "protocol": "http",
               "host": [
-                "44",
-                "203",
-                "150",
-                "199"
+                "107",
+                "20",
+                "197",
+                "43"
               ],
               "port": "8081",
               "path": [
@@ -685,6 +741,349 @@
           },
           "status": "Not Found",
           "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"mensaje\": \"Tienda no encontrada con el ID: 99\",\n    \"error\": \"Recurso no encontrado\",\n    \"timestamp\": \"2026-05-17T16:13:05.683730816\",\n    \"status\": 404\n}"
+        }
+      ]
+    },
+    {
+      "name": "GET Buscar Carrito - Caso Exito",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\r\n    {\r\n        \"productoId\" : 1,\r\n        \"cantidad\" : 4\r\n    },\r\n    {\r\n        \"productoId\" : 3,\r\n        \"cantidad\" : 2\r\n    }\r\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://107.20.197.43:8083/api/carrito/2",
+          "protocol": "http",
+          "host": [
+            "107",
+            "20",
+            "197",
+            "43"
+          ],
+          "port": "8083",
+          "path": [
+            "api",
+            "carrito",
+            "2"
+          ]
+        },
+        "description": "Pre-Condición:\r\nEl servicio debe estar levantado y funcionando\r\nEl recurso a llamar debe existir\r\nResultado esperado:\r\n200 ok"
+      },
+      "response": [
+        {
+          "name": "GET Buscar Carrito - Caso Exito",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"productoId\" : 1,\r\n        \"cantidad\" : 4\r\n    },\r\n    {\r\n        \"productoId\" : 3,\r\n        \"cantidad\" : 2\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://107.20.197.43:8083/api/carrito/2",
+              "protocol": "http",
+              "host": [
+                "107",
+                "20",
+                "197",
+                "43"
+              ],
+              "port": "8083",
+              "path": [
+                "api",
+                "carrito",
+                "2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"id\": 2,\n    \"productos\": [\n        {\n            \"productoId\": 1,\n            \"cantidad\": 10\n        },\n        {\n            \"productoId\": 2,\n            \"cantidad\": 5\n        },\n        {\n            \"productoId\": 3,\n            \"cantidad\": 1\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "POST Crear Torneo - Caso Exito",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"idTienda\": 2,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://100.48.91.14:8080/api/torneos",
+          "protocol": "http",
+          "host": [
+            "100",
+            "48",
+            "91",
+            "14"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "torneos"
+          ]
+        },
+        "description": "PRE-CONDICIÓN\r\nEL SERVICIO TIENDA LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nEl SERVICIO TORNEO LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nEL JSON CON DATOS CORRECTOS\r\nRESULTADO ESPERADO: 201 CREATED"
+      },
+      "response": [
+        {
+          "name": "POST Crear Torneo - Caso Exito",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idTienda\": 2,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://100.48.91.14:8080/api/torneos",
+              "protocol": "http",
+              "host": [
+                "100",
+                "48",
+                "91",
+                "14"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "torneos"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"id\": 1,\n    \"idTienda\": 2,\n    \"NombreTienda\": \"Geek World Store\",\n    \"TipoTorneo\": \"Master Cup Internacional\",\n    \"CantidadMiembros\": 64,\n    \"FechaInicio\": \"2026-08-20\",\n    \"FechaTermino\": \"2026-08-25\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "POST Crear Torneo - Recurso inexistente",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"idTienda\": 99,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://100.48.91.14:8080/api/torneos",
+          "protocol": "http",
+          "host": [
+            "100",
+            "48",
+            "91",
+            "14"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "torneos"
+          ]
+        },
+        "description": "PRECONDICIÓN:\r\nAMBOS SERVICIOS (TIENDA Y TORNEO) LEVANTADOS Y FUNCIONALES\r\nRECURSO CON LA ID DE TIENDA NO EXISTE EN TIENDADB\r\nRESULTADO ESPERADO: 404 NOT FOUND"
+      },
+      "response": [
+        {
+          "name": "POST Crear Torneo - Recurso inexistente",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idTienda\": 99,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://100.48.91.14:8080/api/torneos",
+              "protocol": "http",
+              "host": [
+                "100",
+                "48",
+                "91",
+                "14"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "torneos"
+              ]
+            }
+          },
+          "status": "Not Found",
+          "code": 404,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"mensaje\": \"No se puede crear el torneo porque la tienda con ID 99 no existe.\",\n    \"error\": \"Not Found\",\n    \"timestamp\": \"2026-05-17T21:52:46.710246482\",\n    \"status\": 404\n}"
+        }
+      ]
+    },
+    {
+      "name": "DELETE Borrar Torneo - Caso Correcto",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://100.48.91.14:8080/api/torneos/1",
+          "protocol": "http",
+          "host": [
+            "100",
+            "48",
+            "91",
+            "14"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "torneos",
+            "1"
+          ]
+        },
+        "description": "PRECONDICIÓN\r\nSERVICIO LEVANTADO Y FUNCIONANDO\r\nID DE TORNEO EXISTE EN BASE DE DATOS\r\nRESPUESTA ESPERADA: 204 NO CONTENT"
+      },
+      "response": [
+        {
+          "name": "DELETE Borrar Torneo - Caso Correcto",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Torneo de Actualización de Prueba\",\r\n  \"cantidadMiembros\": 20,\r\n  \"fechaInicio\": \"2026-06-15\",\r\n  \"fechaTermino\": \"2026-06-20\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://100.48.91.14:8080/api/torneos/1",
+              "protocol": "http",
+              "host": [
+                "100",
+                "48",
+                "91",
+                "14"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "torneos",
+                "1"
+              ]
+            }
+          },
+          "status": "No Content",
+          "code": 204,
           "_postman_previewlanguage": "",
           "header": [],
           "cookie": [
@@ -694,7 +1093,177 @@
               "path": ""
             }
           ],
-          "body": "{\r\n    \"mensaje\": \"Tienda no encontrada con el ID: 99\",\r\n    \"error\": \"Recurso no encontrado\",\r\n    \"timestamp\": \"2026-05-17T16:13:05.683730816\",\r\n    \"status\": 404\r\n}"
+          "body": ""
+        }
+      ]
+    },
+    {
+      "name": "PUT Cambiar Torneo - Caso Correcto",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://100.48.91.14:8080/api/torneos/2",
+          "protocol": "http",
+          "host": [
+            "100",
+            "48",
+            "91",
+            "14"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "torneos",
+            "2"
+          ]
+        },
+        "description": "PRECONDICIÓN:\r\nSERVICIOS LEVANTADOS Y FUNCIONALES\r\nRECURSO EXISTE EN LA BASE DE DATOS\r\nRESPUESTA ESPERADA: 200OK"
+      },
+      "response": [
+        {
+          "name": "PUT Cambiar Torneo - Caso Correcto",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://100.48.91.14:8080/api/torneos/2",
+              "protocol": "http",
+              "host": [
+                "100",
+                "48",
+                "91",
+                "14"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "torneos",
+                "2"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"id\": 2,\n    \"idTienda\": 1,\n    \"NombreTienda\": \"Tienda Central Gaming\",\n    \"TipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\n    \"CantidadMiembros\": 16,\n    \"FechaInicio\": \"2026-06-05\",\n    \"FechaTermino\": \"2026-06-10\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "POST Crear Torneo - Servicio Caido",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"idTienda\": 3,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://100.48.91.14:8080/api/torneos",
+          "protocol": "http",
+          "host": [
+            "100",
+            "48",
+            "91",
+            "14"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "torneos"
+          ]
+        },
+        "description": "PRECONDICIÓN\r\nTORNEO LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nTIENDA CAIDO\r\nJSON CORRECTO\r\nRESPUESTA ESPERADA:\r\n503 SERVICE UNAVAILABLE"
+      },
+      "response": [
+        {
+          "name": "POST Crear Torneo - Servicio Caido",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idTienda\": 3,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://100.48.91.14:8080/api/torneos",
+              "protocol": "http",
+              "host": [
+                "100",
+                "48",
+                "91",
+                "14"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "torneos"
+              ]
+            }
+          },
+          "status": "Service Unavailable",
+          "code": 503,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"mensaje\": \"No se pudo validar la tienda porque el servidor remoto está inaccesible.\",\n    \"error\": \"Servicio Externo No Disponible\",\n    \"timestamp\": \"2026-05-17T22:12:50.649731785\",\n    \"status\": 503\n}"
         }
       ]
     }
