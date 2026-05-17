@@ -32,8 +32,8 @@ al levantamiento
 ### Tabla de contratos
 | Origen | Destino | Método | Endpoint | DTO |
 |---|---|---|---|---|
-| Carrito | Producto | GET | /api/productos/{id} | ProductoDTO |
-| Torneo | Tienda | GET | /api/v2/tienda/{/id} | TiendaDTO |
+| Producto | Carrito | GET | /api/productos/{id} | ProductoDTO |
+| Tienda | Torneo | GET | /api/v2/tienda/{/id} | TiendaDTO |
 | | | | | |
 
 ### Tecnología utilizada
