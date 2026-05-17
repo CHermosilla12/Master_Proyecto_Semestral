@@ -2,47 +2,86 @@
   "info": {
     "_postman_id": "058a92a0-2c83-4e6b-a0fc-9c3d822430f0",
     "name": "hito2-integracion",
+    "description": "Esta colección reúne pruebas de integración para distintos microservicios del sistema, incluyendo producto, tienda, carrito, proveedor, torneo, usuario y comprador.\n\nSu propósito es validar tanto flujos exitosos como escenarios de error y resiliencia, por ejemplo creación, búsqueda, actualización, eliminación, recursos inexistentes y servicios caídos. De esta forma, la colección permite comprobar que los endpoints respondan con los códigos de estado esperados y que la integración entre servicios funcione correctamente bajo diferentes condiciones.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "53434144",
     "_collection_link": "https://go.postman.co/collection/53434144-058a92a0-2c83-4e6b-a0fc-9c3d822430f0?source=collection_link"
   },
   "item": [
     {
-      "name": "POST Crear Producto - Caso Exito",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"nombre\": \"Pachirisu EX\",\r\n    \"descripcion\" : \"PTCG pocket trade\",\r\n    \"precio\": 200\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "Producto",
+      "item": [
+        {
+          "name": "GET Buscar Producto - Recurso Inexistente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://107.20.197.43:8080/api/productos/4",
+              "protocol": "http",
+              "host": [
+                "107",
+                "20",
+                "197",
+                "43"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "productos",
+                "4"
+              ]
+            },
+            "description": "PRE-CONDICIÓN:  \nEl microservicio de Catálogo se encuentra encendido y respondiendo de forma normal.\n\nEl identificador de producto enviado en el JSON (ej. productoId: 4) no existe en la base de datos del catálogo.\n\nResultado Esperado:  \nCódigo de Estado: 404 Not Found."
+          },
+          "response": [
+            {
+              "name": "GET Buscar Producto - Recurso Inexistente",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://107.20.197.43:8080/api/productos/4",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "productos",
+                    "4"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"mensaje\": \"Producto no encontrado con id: 4\",\n    \"error\": \"Producto no encontrado\"\n}"
             }
-          }
-        },
-        "url": {
-          "raw": "http://107.20.197.43:8080/api/productos/auto",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "productos",
-            "auto"
           ]
         },
-        "description": "Este flujo valida el ciclo de vida correcto y esperado del sistema cuando la información enviada es válida y los servicios de la arquitectura de microservicios se encuentran totalmente operativos e integrados.\n\nPrecondiciones: El microservicio de Catálogo de Productos está levantado y responde correctamente.\n\nResultado Esperado:\n\nCódigo HTTP: 201 Created"
-      },
-      "response": [
         {
           "name": "POST Crear Producto - Caso Exito",
-          "originalRequest": {
+          "request": {
             "method": "POST",
             "header": [],
             "body": {
@@ -55,7 +94,7 @@
               }
             },
             "url": {
-              "raw": "http://107.20.197.43:8083/api/carrito",
+              "raw": "http://107.20.197.43:8080/api/productos/auto",
               "protocol": "http",
               "host": [
                 "107",
@@ -63,70 +102,76 @@
                 "197",
                 "43"
               ],
-              "port": "8083",
+              "port": "8080",
               "path": [
                 "api",
-                "carrito"
+                "productos",
+                "auto"
               ]
-            }
+            },
+            "description": "Este flujo valida el ciclo de vida correcto y esperado del sistema cuando la información enviada es válida y los servicios de la arquitectura de microservicios se encuentran totalmente operativos e integrados.\n\nPrecondiciones: El microservicio de Catálogo de Productos está levantado y responde correctamente.\n\nResultado Esperado:\n\nCódigo HTTP: 201 Created"
           },
-          "status": "Created",
-          "code": 201,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "POST Crear Producto - Caso Exito",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"Pachirisu EX\",\r\n    \"descripcion\" : \"PTCG pocket trade\",\r\n    \"precio\": 200\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8083/api/carrito",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8083",
+                  "path": [
+                    "api",
+                    "carrito"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\r\n    \"id\" : 1\r\n    \"nombre\": \"Pachirisu EX\",\r\n    \"descripcion\" : \"PTCG pocket trade\",\r\n    \"precio\": 200\r\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\r\n    \"id\" : 1\r\n    \"nombre\": \"Pachirisu EX\",\r\n    \"descripcion\" : \"PTCG pocket trade\",\r\n    \"precio\": 200\r\n}"
+          ]
         }
       ]
     },
     {
-      "name": "POST Crear carrito - Caso Exito",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "[\r\n  {   \r\n    \"productoId\": 7,\r\n    \"cantidad\": 1\r\n  },\r\n  {\r\n    \"productoId\": 8,\r\n    \"cantidad\": 2\r\n  }\r\n]",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://107.20.197.43:8083/api/carrito",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8083",
-          "path": [
-            "api",
-            "carrito"
-          ]
-        },
-        "description": "Este flujo tiene como objetivo validar el comportamiento correcto y feliz del ecosistema de microservicios cuando las peticiones cumplen con todas las reglas de negocio y los datos referenciados existen de forma íntegra en el sistema\n\nPrecondiciones:\n\nEl microservicio de Catálogo de Productos se encuentra levantado y operativo en su puerto correspondiente.\n\n**Resultado Esperado:** \\* **Código de Estado:** `201 Created`"
-      },
-      "response": [
+      "name": "CARRITO",
+      "item": [
         {
           "name": "POST Crear carrito - Caso Exito",
-          "originalRequest": {
+          "request": {
             "method": "POST",
             "header": [],
             "body": {
@@ -152,65 +197,65 @@
                 "api",
                 "carrito"
               ]
-            }
+            },
+            "description": "Este flujo tiene como objetivo validar el comportamiento correcto y feliz del ecosistema de microservicios cuando las peticiones cumplen con todas las reglas de negocio y los datos referenciados existen de forma íntegra en el sistema\n\nPrecondiciones:\n\nEl microservicio de Catálogo de Productos se encuentra levantado y operativo en su puerto correspondiente.\n\n**Resultado Esperado:** \\* **Código de Estado:** `201 Created`"
           },
-          "status": "Created",
-          "code": 201,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "POST Crear carrito - Caso Exito",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\r\n  {   \r\n    \"productoId\": 7,\r\n    \"cantidad\": 1\r\n  },\r\n  {\r\n    \"productoId\": 8,\r\n    \"cantidad\": 2\r\n  }\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8083/api/carrito",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8083",
+                  "path": [
+                    "api",
+                    "carrito"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 5,\n    \"productos\": [\n        {\n            \"productoId\": 7,\n            \"nombre\": \"Display Box: Pokémon TCG - Crown Zenith\",\n            \"precio\": 57990,\n            \"cantidad\": 1,\n            \"subtotal\": 57990\n        },\n        {\n            \"productoId\": 8,\n            \"nombre\": \"Pikachu EX\",\n            \"precio\": 150000,\n            \"cantidad\": 2,\n            \"subtotal\": 300000\n        }\n    ]\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"id\": 5,\n    \"productos\": [\n        {\n            \"productoId\": 7,\n            \"nombre\": \"Display Box: Pokémon TCG - Crown Zenith\",\n            \"precio\": 57990,\n            \"cantidad\": 1,\n            \"subtotal\": 57990\n        },\n        {\n            \"productoId\": 8,\n            \"nombre\": \"Pikachu EX\",\n            \"precio\": 150000,\n            \"cantidad\": 2,\n            \"subtotal\": 300000\n        }\n    ]\n}"
-        }
-      ]
-    },
-    {
-      "name": "POST Crear Carrito -  Recurso Inexistente",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "[\r\n  {   \r\n    \"productoId\": 4,\r\n    \"cantidad\": 1\r\n  }\r\n]",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://107.20.197.43:8083/api/carrito",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8083",
-          "path": [
-            "api",
-            "carrito"
           ]
         },
-        "description": "Este flujo evalúa la robustez del sistema y el control de excepciones de negocio. Se simula una petición donde se intenta operar con un recurso que no se encuentra mapeado o registrado en la base de datos del catálogo de productos.\"\r\nPRE-CONDICIÓN:\r\nEl microservicio de Catálogo se encuentra encendido y respondiendo de forma normal.\r\n\r\nEl identificador de producto enviado en el JSON (ej. productoId: 4) no existe en la base de datos del catálogo.\r\n\r\nResultado Esperado:\r\nCódigo de Estado: 404 Not Found."
-      },
-      "response": [
         {
           "name": "POST Crear Carrito -  Recurso Inexistente",
-          "originalRequest": {
+          "request": {
             "method": "POST",
             "header": [],
             "body": {
@@ -236,69 +281,69 @@
                 "api",
                 "carrito"
               ]
-            }
+            },
+            "description": "Este flujo evalúa la robustez del sistema y el control de excepciones de negocio. Se simula una petición donde se intenta operar con un recurso que no se encuentra mapeado o registrado en la base de datos del catálogo de productos.\"\r\nPRE-CONDICIÓN:\r\nEl microservicio de Catálogo se encuentra encendido y respondiendo de forma normal.\r\n\r\nEl identificador de producto enviado en el JSON (ej. productoId: 4) no existe en la base de datos del catálogo.\r\n\r\nResultado Esperado:\r\nCódigo de Estado: 404 Not Found."
           },
-          "status": "Not Found",
-          "code": 404,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "POST Crear Carrito -  Recurso Inexistente",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\r\n  {   \r\n    \"productoId\": 4,\r\n    \"cantidad\": 1\r\n  }\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8083/api/carrito",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8083",
+                  "path": [
+                    "api",
+                    "carrito"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"mensaje\": \"Producto no encontrado en el Catálogo con ID: 4\",\n    \"error\": \"Recurso no encontrado\",\n    \"timestamp\": \"2026-05-17T01:48:51.992124212\",\n    \"status\": 404\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"mensaje\": \"Producto no encontrado en el Catálogo con ID: 4\",\n    \"error\": \"Recurso no encontrado\",\n    \"timestamp\": \"2026-05-17T01:48:51.992124212\",\n    \"status\": 404\n}"
-        }
-      ]
-    },
-    {
-      "name": "POST Crear Carrito - Servicio Caido",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "[\r\n  {   \r\n    \"productoId\": 4,\r\n    \"cantidad\": 1\r\n  }\r\n]",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://107.20.197.43:8083/api/carrito",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8083",
-          "path": [
-            "api",
-            "carrito"
           ]
         },
-        "description": "Este flujo valida los mecanismos de resiliencia, tolerancia a fallos y aislamiento de infraestructura. Permite demostrar cómo reacciona el microservicio de Carrito cuando su dependencia crítica (Catálogo de productos) sufre una interrupción total del servicio de forma inesperada\n\nPrecondiciones:  \nEl microservicio de Carrito se encuentra activo y escuchando peticiones.  \nEl microservicio de Catálogo de productos ha sido detenido/apagado por completo, simulando una caída de red o de servidor en producción.\n\nResultado Esperado:  \nCódigo de Estado: 503 Service Unavailable."
-      },
-      "response": [
         {
           "name": "POST Crear Carrito - Servicio Caido",
-          "originalRequest": {
-            "method": "POST",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
             "header": [],
             "body": {
               "mode": "raw",
@@ -323,61 +368,81 @@
                 "api",
                 "carrito"
               ]
-            }
+            },
+            "description": "Este flujo valida los mecanismos de resiliencia, tolerancia a fallos y aislamiento de infraestructura. Permite demostrar cómo reacciona el microservicio de Carrito cuando su dependencia crítica (Catálogo de productos) sufre una interrupción total del servicio de forma inesperada\n\nPrecondiciones:  \nEl microservicio de Carrito se encuentra activo y escuchando peticiones.  \nEl microservicio de Catálogo de productos ha sido detenido/apagado por completo, simulando una caída de red o de servidor en producción.\n\nResultado Esperado:  \nCódigo de Estado: 503 Service Unavailable."
           },
-          "status": "Service Unavailable",
-          "code": 503,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "POST Crear Carrito - Servicio Caido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\r\n  {   \r\n    \"productoId\": 4,\r\n    \"cantidad\": 1\r\n  }\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8083/api/carrito",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8083",
+                  "path": [
+                    "api",
+                    "carrito"
+                  ]
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"mensaje\": \"El servicio de Catálogo de productos no se encuentra disponible actualmente.\",\n    \"error\": \"Servicio no disponible\",\n    \"timestamp\": \"2026-05-17T01:53:44.501069855\",\n    \"status\": 503\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"mensaje\": \"El servicio de Catálogo de productos no se encuentra disponible actualmente.\",\n    \"error\": \"Servicio no disponible\",\n    \"timestamp\": \"2026-05-17T01:53:44.501069855\",\n    \"status\": 503\n}"
-        }
-      ]
-    },
-    {
-      "name": "GET Buscar Producto - Recurso Inexistente",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://107.20.197.43:8080/api/productos/4",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "productos",
-            "4"
           ]
         },
-        "description": "PRE-CONDICIÓN:  \nEl microservicio de Catálogo se encuentra encendido y respondiendo de forma normal.\n\nEl identificador de producto enviado en el JSON (ej. productoId: 4) no existe en la base de datos del catálogo.\n\nResultado Esperado:  \nCódigo de Estado: 404 Not Found."
-      },
-      "response": [
         {
-          "name": "GET Buscar Producto - Recurso Inexistente",
-          "originalRequest": {
+          "name": "GET Buscar Carrito - Caso Exito",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
             "method": "GET",
             "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "[\r\n    {\r\n        \"productoId\" : 1,\r\n        \"cantidad\" : 4\r\n    },\r\n    {\r\n        \"productoId\" : 3,\r\n        \"cantidad\" : 2\r\n    }\r\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
-              "raw": "http://107.20.197.43:8080/api/productos/4",
+              "raw": "http://107.20.197.43:8083/api/carrito/2",
               "protocol": "http",
               "host": [
                 "107",
@@ -385,72 +450,77 @@
                 "197",
                 "43"
               ],
-              "port": "8080",
+              "port": "8083",
               "path": [
                 "api",
-                "productos",
-                "4"
+                "carrito",
+                "2"
               ]
-            }
+            },
+            "description": "Pre-Condición:\r\nEl servicio debe estar levantado y funcionando\r\nEl recurso a llamar debe existir\r\nResultado esperado:\r\n200 ok"
           },
-          "status": "Not Found",
-          "code": 404,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "GET Buscar Carrito - Caso Exito",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\r\n    {\r\n        \"productoId\" : 1,\r\n        \"cantidad\" : 4\r\n    },\r\n    {\r\n        \"productoId\" : 3,\r\n        \"cantidad\" : 2\r\n    }\r\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8083/api/carrito/2",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8083",
+                  "path": [
+                    "api",
+                    "carrito",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 2,\n    \"productos\": [\n        {\n            \"productoId\": 1,\n            \"cantidad\": 10\n        },\n        {\n            \"productoId\": 2,\n            \"cantidad\": 5\n        },\n        {\n            \"productoId\": 3,\n            \"cantidad\": 1\n        }\n    ]\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"mensaje\": \"Producto no encontrado con id: 4\",\n    \"error\": \"Producto no encontrado\"\n}"
+          ]
         }
       ]
     },
     {
-      "name": "POST Crear Proveedor - Caso Exito",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"nombre\": \"Distribuidora Central S.A.\",\r\n  \"direccion\": \"Av. Nueva Providencia 1881, Oficina 510\",\r\n  \"telefono\": \"+56912345678\",\r\n  \"email\": \"contacto@distribuidoracentral.cl\",\r\n  \"producto\": \"Deckbox y playmats genericas\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://107.20.197.43:8082/api/proveedores/",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8082",
-          "path": [
-            "api",
-            "proveedores",
-            ""
-          ]
-        },
-        "description": "PRE-CONDICIÓN:\n\nEl microservicio de Proveedores se encuentra levantado, operativo y con la conexión activa a su base de datos relacional (MySQL).\n\nEl cuerpo (Body) de la petición en formato JSON contiene todos los campos obligatorios definidos en el ProveedorCreateDTO (nombre, direccion, telefono, producto).\n\nLos datos enviados no infringen ninguna restricción de unicidad en la base de datos (por ejemplo, que el correo electrónico o teléfono no estén duplicados si se configuraron como campos únicos).\n\nResultado Esperado: HTTP STATUS 201 CREATED"
-      },
-      "response": [
+      "name": "Proveedor",
+      "item": [
         {
           "name": "POST Crear Proveedor - Caso Exito",
-          "originalRequest": {
+          "request": {
             "method": "POST",
             "header": [],
             "body": {
@@ -463,7 +533,7 @@
               }
             },
             "url": {
-              "raw": "http://107.20.197.43:8082/api/proveedores/auto",
+              "raw": "http://107.20.197.43:8082/api/proveedores/",
               "protocol": "http",
               "host": [
                 "107",
@@ -475,76 +545,70 @@
               "path": [
                 "api",
                 "proveedores",
-                "auto"
+                ""
               ]
-            }
+            },
+            "description": "PRE-CONDICIÓN:\n\nEl microservicio de Proveedores se encuentra levantado, operativo y con la conexión activa a su base de datos relacional (MySQL).\n\nEl cuerpo (Body) de la petición en formato JSON contiene todos los campos obligatorios definidos en el ProveedorCreateDTO (nombre, direccion, telefono, producto).\n\nLos datos enviados no infringen ninguna restricción de unicidad en la base de datos (por ejemplo, que el correo electrónico o teléfono no estén duplicados si se configuraron como campos únicos).\n\nResultado Esperado: HTTP STATUS 201 CREATED"
           },
-          "status": "Created",
-          "code": 201,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "POST Crear Proveedor - Caso Exito",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nombre\": \"Distribuidora Central S.A.\",\r\n  \"direccion\": \"Av. Nueva Providencia 1881, Oficina 510\",\r\n  \"telefono\": \"+56912345678\",\r\n  \"email\": \"contacto@distribuidoracentral.cl\",\r\n  \"producto\": \"Deckbox y playmats genericas\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8082/api/proveedores/auto",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "proveedores",
+                    "auto"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 2,\n    \"nombre\": \"Distribuidora Central S.A.\",\n    \"direccion\": \"Av. Nueva Providencia 1881, Oficina 510\",\n    \"telefono\": \"+56912345678\",\n    \"email\": \"contacto@distribuidoracentral.cl\",\n    \"producto\": \"Deckbox y playmats genericas\"\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"id\": 2,\n    \"nombre\": \"Distribuidora Central S.A.\",\n    \"direccion\": \"Av. Nueva Providencia 1881, Oficina 510\",\n    \"telefono\": \"+56912345678\",\n    \"email\": \"contacto@distribuidoracentral.cl\",\n    \"producto\": \"Deckbox y playmats genericas\"\n}"
-        }
-      ]
-    },
-    {
-      "name": "GET Buscar Proveedor - Recurso Inexistente",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://107.20.197.43:8082/api/proveedores/99",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8082",
-          "path": [
-            "api",
-            "proveedores",
-            "99"
           ]
         },
-        "description": "Precondiciones:\n\nEl microservicio de Proveedores se encuentra operativo.\n\nEl valor del ID provisto en la URL del endpoint no corresponde a ningún registro físico guardado en la tabla de proveedores.\n\nQué se espera:\n\nCódigo de Estado HTTP: 404 Not Found"
-      },
-      "response": [
         {
           "name": "GET Buscar Proveedor - Recurso Inexistente",
-          "originalRequest": {
+          "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json",
-                "type": "text"
-              }
-            ],
-            "body": {
-              "mode": "raw",
-              "raw": "",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
+            "header": [],
             "url": {
               "raw": "http://107.20.197.43:8082/api/proveedores/99",
               "protocol": "http",
@@ -560,67 +624,505 @@
                 "proveedores",
                 "99"
               ]
-            }
+            },
+            "description": "Precondiciones:\n\nEl microservicio de Proveedores se encuentra operativo.\n\nEl valor del ID provisto en la URL del endpoint no corresponde a ningún registro físico guardado en la tabla de proveedores.\n\nQué se espera:\n\nCódigo de Estado HTTP: 404 Not Found"
           },
-          "status": "Not Found",
-          "code": 404,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "GET Buscar Proveedor - Recurso Inexistente",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8082/api/proveedores/99",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "proveedores",
+                    "99"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"mensaje\": \"Proveedor no encontrado con ID: 99\",\n    \"error\": \"Not Found\",\n    \"timestamp\": \"2026-05-17T03:19:42.389614480\",\n    \"status\": 404\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"mensaje\": \"Proveedor no encontrado con ID: 99\",\n    \"error\": \"Not Found\",\n    \"timestamp\": \"2026-05-17T03:19:42.389614480\",\n    \"status\": 404\n}"
+          ]
         }
       ]
     },
     {
-      "name": "POST Crear Tienda - Caso Exito",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"nombre\": \"Tienda Central Gaming\",\r\n  \"ubicacion\": \"Av. Providencia 1234, Santiago\",\r\n  \"horario\": \"Lunes a Viernes 09:00 - 20:00\",\r\n  \"cant_Empleados\": 12\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+      "name": "USUARIO",
+      "item": [
+        {
+          "name": "POST Usuario validacion",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8080/api/v2/usuarios",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v2",
+                "usuarios"
+              ]
+            },
+            "description": "PROPÓSITO:  \nValida el registro de un usuario enviando una solicitud POST al recurso de usuarios para comprobar el comportamiento del servicio ante datos inválidos o incompletos.\n\nPRECONDICIONES:\n\n- Servicio levantado y accesible.\n    \n- Endpoint de usuarios disponible.\n    \n- Escenario orientado a validación de entrada.\n    \n\nENDPOINT:  \nPOST /api/v2/usuarios  \nURL base usada: 13.219.97.37:8080\n\nHEADERS Y BODY ESPERADOS:\n\n- Método: POST\n    \n- Headers: no se observan headers configurados en la solicitud actual.\n    \n- Body: payload JSON. En la solicitud actual el cuerpo está vacío ({ }), por lo que se espera ejecutar una validación de campos obligatorios o formato de datos.\n    \n\nRESPUESTA ESPERADA:\n\n- 400 Bad Request\n    \n- El servicio debería indicar que la solicitud no cumple con las validaciones requeridas para crear o procesar el usuario."
+          },
+          "response": [
+            {
+              "name": "Usuario validacion",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8080/api/v2/usuarios",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v2",
+                    "usuarios"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:30:46 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"genero\": \"el genero no puede estar vacio\",\n    \"correo\": \"el Correo  no puede estar vacio\",\n    \"nombre\": \"el nombre no puede estar vacio\",\n    \"password\": \"la contraseña no puede estar vacio\",\n    \"nombreUser\": \"el Nombre de usuario no puede estar vacio\",\n    \"tipoUser\": \"ingrese el tipo de usuario vendedor o comprador\",\n    \"apellidoM\": \"el Apellido Materno no puede estar vacio\",\n    \"apellidoP\": \"el Apellido Paterno no puede estar vacio\"\n}"
             }
-          }
-        },
-        "url": {
-          "raw": "http://107.20.197.43:8081/api/v2/tienda/auto",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8081",
-          "path": [
-            "api",
-            "v2",
-            "tienda",
-            "auto"
           ]
         },
-        "description": "PRE-CONDICIÓN:\n\nEl servicio de Tienda debe estar corriendo (la bombilla de Spring Boot Dashboard en verde).\n\nRespuesta esperada:\n\nHTTP STATUS 201 CREATED"
-      },
-      "response": [
+        {
+          "name": "POST Usuario agregar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"nombre\": \"miguel\",\r\n        \"apellidoP\": \"jose\",\r\n        \"apellidoM\": \"jose\",\r\n        \"nombreUser\": \"Mati6767\",\r\n        \"correo\": \"mjojose@gmail.com\",\r\n        \"password\": \"sixseven\",\r\n        \"edad\": 25,\r\n        \"genero\": \"Masculino\",\r\n        \"tipoUser\": \"Comprador,Vendedor\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8080/api/v2/usuarios",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v2",
+                "usuarios"
+              ]
+            },
+            "description": "PROPÓSITO:  \nCrea un usuario mediante una solicitud POST al recurso de usuarios.\n\nENDPOINT:  \nPOST 13.219.97.37:8080/api/v2/usuarios\n\nMÉTODO:  \nPOST\n\nCAMPOS DEL BODY:\n\n- nombre: nombre del usuario.\n    \n- apellidoP: apellido paterno.\n    \n- apellidoM: apellido materno.\n    \n- nombreUser: nombre de usuario.\n    \n- correo: correo electrónico.\n    \n- password: contraseña.\n    \n- edad: edad del usuario.\n    \n- genero: género del usuario.\n    \n- tipoUser: tipo de usuario.\n    \n\nPRECONDICIONES:\n\n- Servicio levantado y accesible.\n    \n- Endpoint de usuarios disponible.\n    \n- Enviar el body en formato JSON con los campos requeridos.\n    \n\nRESPUESTA EXITOSA ESPERADA:\n\n- Created.\n    \n- Existe un ejemplo guardado con estado \"Created\"."
+          },
+          "response": [
+            {
+              "name": "Usuario agregar",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"nombre\": \"miguel\",\r\n        \"apellidoP\": \"jose\",\r\n        \"apellidoM\": \"jose\",\r\n        \"nombreUser\": \"Mati6767\",\r\n        \"correo\": \"mjojose@gmail.com\",\r\n        \"password\": \"sixseven\",\r\n        \"edad\": 25,\r\n        \"genero\": \"Masculino\",\r\n        \"tipoUser\": \"Comprador,Vendedor\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8080/api/v2/usuarios",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v2",
+                    "usuarios"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:32:01 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 12,\n    \"nombre\": \"miguel\",\n    \"apellidoP\": \"jose\",\n    \"apellidoM\": \"jose\",\n    \"nombreUser\": \"Mati6767\",\n    \"correo\": \"mjojose@gmail.com\",\n    \"password\": \"sixseven\",\n    \"edad\": 25,\n    \"genero\": \"Masculino\",\n    \"tipoUser\": \"Comprador,Vendedor\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "PUT Actualizar usuario - CASO EXITO",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n    \"nombre\": \"fabi\",\r\n    \"apellidoP\": \"Ignacio\",\r\n    \"apellidoM\": \"Fuentes\",\r\n    \"nombreUser\": \"leoig21\",\r\n    \"correo\": \"fabifabi@gmail.com\",\r\n    \"password\": \"lovemiku\",\r\n    \"edad\": 25,\r\n    \"genero\": \"Masculino\",\r\n    \"tipoUser\": \"Comprador\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8080/api/v2/usuarios/7",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v2",
+                "usuarios",
+                "7"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "actualizar usuario",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n    \"nombre\": \"fabi\",\r\n    \"apellidoP\": \"Ignacio\",\r\n    \"apellidoM\": \"Fuentes\",\r\n    \"nombreUser\": \"leoig21\",\r\n    \"correo\": \"fabifabi@gmail.com\",\r\n    \"password\": \"lovemiku\",\r\n    \"edad\": 25,\r\n    \"genero\": \"Masculino\",\r\n    \"tipoUser\": \"Comprador\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8080/api/v2/usuarios/7",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v2",
+                    "usuarios",
+                    "7"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:50:33 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 7,\n    \"nombre\": \"fabi\",\n    \"apellidoP\": \"Ignacio\",\n    \"apellidoM\": \"Fuentes\",\n    \"nombreUser\": \"leoig21\",\n    \"correo\": \"fabifabi@gmail.com\",\n    \"password\": \"lovemiku\",\n    \"edad\": 25,\n    \"genero\": \"Masculino\",\n    \"tipoUser\": \"Comprador\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "DELETE Borrar Usuario - CASO EXITO",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": ""
+            },
+            "description": "PRECONDICION:\n\nSERVICIO FUNCIONANDO\n\nRECURSO A ELIMINAR EXISTE\n\nRESPUESTA ESPERADA:\n\n204 NO CONTENT"
+          },
+          "response": [
+            {
+              "name": "New Request",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8080/api/v2/usuarios/7",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v2",
+                    "usuarios",
+                    "7"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:51:23 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "GET listar usuario - CASO EXITO",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8080/api/v2/usuarios",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v2",
+                "usuarios"
+              ]
+            },
+            "description": "PRECONDICIÓN:\n\nSERVICIO LEVANTADO\n\nRESPUESTA:\n\n200 OK"
+          },
+          "response": [
+            {
+              "name": "usuario listar",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "13.219.97.37:8080/api/v2/usuarios",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v2",
+                    "usuarios"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:30:01 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 2,\n        \"nombre\": \"Matias\",\n        \"apellidoP\": \"Castillo\",\n        \"apellidoM\": \"Rojas\",\n        \"nombreUser\": \"Mati6767\",\n        \"correo\": \"mati.rojas@gmail.com\",\n        \"password\": \"sixseven\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador,Vendedor\"\n    },\n    {\n        \"id\": 6,\n        \"nombre\": \"fabian\",\n        \"apellidoP\": \"Villa\",\n        \"apellidoM\": \"Lobos\",\n        \"nombreUser\": \"Mati6767\",\n        \"correo\": \"fabi.Lobos@gmail.com\",\n        \"password\": \"32321\",\n        \"edad\": 34,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador,Vendedor\"\n    },\n    {\n        \"id\": 7,\n        \"nombre\": \"Leo\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"leoig21\",\n        \"correo\": \"leoleo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    },\n    {\n        \"id\": 8,\n        \"nombre\": \"Leo\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"leoig21\",\n        \"correo\": \"leoleo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    },\n    {\n        \"id\": 9,\n        \"nombre\": \"Leo\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"leoig21\",\n        \"correo\": \"leoleo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    },\n    {\n        \"id\": 10,\n        \"nombre\": \"Leo\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"leoig21\",\n        \"correo\": \"leoleo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    },\n    {\n        \"id\": 11,\n        \"nombre\": \"fabian\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"fabiooig21\",\n        \"correo\": \"fabifabieo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "TIENDA",
+      "item": [
         {
           "name": "POST Crear Tienda - Caso Exito",
-          "originalRequest": {
+          "request": {
             "method": "POST",
             "header": [],
             "body": {
@@ -648,68 +1150,68 @@
                 "tienda",
                 "auto"
               ]
-            }
+            },
+            "description": "PRE-CONDICIÓN:\n\nEl servicio de Tienda debe estar corriendo (la bombilla de Spring Boot Dashboard en verde).\n\nRespuesta esperada:\n\nHTTP STATUS 201 CREATED"
           },
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "POST Crear Tienda - Caso Exito",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"nombre\": \"Tienda Central Gaming\",\r\n  \"ubicacion\": \"Av. Providencia 1234, Santiago\",\r\n  \"horario\": \"Lunes a Viernes 09:00 - 20:00\",\r\n  \"cant_Empleados\": 12\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8081/api/v2/tienda/auto",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "v2",
+                    "tienda",
+                    "auto"
+                  ]
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"nombre\": \"Tienda Central Gaming\",\n    \"ubicacion\": \"Av. Providencia 1234, Santiago\",\n    \"horario\": \"Lunes a Viernes 09:00 - 20:00\",\n    \"cant_Empleados\": 12\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"id\": 1,\n    \"nombre\": \"Tienda Central Gaming\",\n    \"ubicacion\": \"Av. Providencia 1234, Santiago\",\n    \"horario\": \"Lunes a Viernes 09:00 - 20:00\",\n    \"cant_Empleados\": 12\n}"
-        }
-      ]
-    },
-    {
-      "name": "GET Buscar Tienda - Recurso Inexistente",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://107.20.197.43:8081/api/v2/tienda/1",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8081",
-          "path": [
-            "api",
-            "v2",
-            "tienda",
-            "1"
           ]
         },
-        "description": "PRE-CONDICIÓN\r\nEl modulo de Tienda debe estar levantado y funcionando correctamente\r\nEl recurso a solicitar no existe en la base de datos\r\n\r\nRespuesta Esperada\r\nHTTP STATUS 404 NOT FOUND"
-      },
-      "response": [
         {
           "name": "GET Buscar Tienda - Recurso Inexistente",
-          "originalRequest": {
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
             "method": "GET",
             "header": [],
             "body": {
@@ -722,7 +1224,7 @@
               }
             },
             "url": {
-              "raw": "http://107.20.197.43:8081/api/v2/tienda/99",
+              "raw": "http://107.20.197.43:8081/api/v2/tienda/1",
               "protocol": "http",
               "host": [
                 "107",
@@ -735,161 +1237,79 @@
                 "api",
                 "v2",
                 "tienda",
-                "99"
+                "1"
               ]
-            }
-          },
-          "status": "Not Found",
-          "code": 404,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
-            }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"mensaje\": \"Tienda no encontrada con el ID: 99\",\n    \"error\": \"Recurso no encontrado\",\n    \"timestamp\": \"2026-05-17T16:13:05.683730816\",\n    \"status\": 404\n}"
-        }
-      ]
-    },
-    {
-      "name": "GET Buscar Carrito - Caso Exito",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "GET",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "[\r\n    {\r\n        \"productoId\" : 1,\r\n        \"cantidad\" : 4\r\n    },\r\n    {\r\n        \"productoId\" : 3,\r\n        \"cantidad\" : 2\r\n    }\r\n]",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://107.20.197.43:8083/api/carrito/2",
-          "protocol": "http",
-          "host": [
-            "107",
-            "20",
-            "197",
-            "43"
-          ],
-          "port": "8083",
-          "path": [
-            "api",
-            "carrito",
-            "2"
-          ]
-        },
-        "description": "Pre-Condición:\r\nEl servicio debe estar levantado y funcionando\r\nEl recurso a llamar debe existir\r\nResultado esperado:\r\n200 ok"
-      },
-      "response": [
-        {
-          "name": "GET Buscar Carrito - Caso Exito",
-          "originalRequest": {
-            "method": "GET",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "[\r\n    {\r\n        \"productoId\" : 1,\r\n        \"cantidad\" : 4\r\n    },\r\n    {\r\n        \"productoId\" : 3,\r\n        \"cantidad\" : 2\r\n    }\r\n]",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             },
-            "url": {
-              "raw": "http://107.20.197.43:8083/api/carrito/2",
-              "protocol": "http",
-              "host": [
-                "107",
-                "20",
-                "197",
-                "43"
+            "description": "PRE-CONDICIÓN\r\nEl modulo de Tienda debe estar levantado y funcionando correctamente\r\nEl recurso a solicitar no existe en la base de datos\r\n\r\nRespuesta Esperada\r\nHTTP STATUS 404 NOT FOUND"
+          },
+          "response": [
+            {
+              "name": "GET Buscar Tienda - Recurso Inexistente",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://107.20.197.43:8081/api/v2/tienda/99",
+                  "protocol": "http",
+                  "host": [
+                    "107",
+                    "20",
+                    "197",
+                    "43"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "v2",
+                    "tienda",
+                    "99"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
               ],
-              "port": "8083",
-              "path": [
-                "api",
-                "carrito",
-                "2"
-              ]
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"mensaje\": \"Tienda no encontrada con el ID: 99\",\n    \"error\": \"Recurso no encontrado\",\n    \"timestamp\": \"2026-05-17T16:13:05.683730816\",\n    \"status\": 404\n}"
             }
-          },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
-            }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"id\": 2,\n    \"productos\": [\n        {\n            \"productoId\": 1,\n            \"cantidad\": 10\n        },\n        {\n            \"productoId\": 2,\n            \"cantidad\": 5\n        },\n        {\n            \"productoId\": 3,\n            \"cantidad\": 1\n        }\n    ]\n}"
+          ]
         }
       ]
     },
     {
-      "name": "POST Crear Torneo - Caso Exito",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"idTienda\": 2,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://100.48.91.14:8080/api/torneos",
-          "protocol": "http",
-          "host": [
-            "100",
-            "48",
-            "91",
-            "14"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "torneos"
-          ]
-        },
-        "description": "PRE-CONDICIÓN\r\nEL SERVICIO TIENDA LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nEl SERVICIO TORNEO LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nEL JSON CON DATOS CORRECTOS\r\nRESULTADO ESPERADO: 201 CREATED"
-      },
-      "response": [
+      "name": "Torneo",
+      "item": [
         {
-          "name": "POST Crear Torneo - Caso Exito",
-          "originalRequest": {
-            "method": "POST",
+          "name": "DELETE Borrar Torneo - Caso Correcto",
+          "request": {
+            "method": "DELETE",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n  \"idTienda\": 2,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
+              "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -897,7 +1317,7 @@
               }
             },
             "url": {
-              "raw": "http://100.48.91.14:8080/api/torneos",
+              "raw": "http://100.48.91.14:8080/api/torneos/1",
               "protocol": "http",
               "host": [
                 "100",
@@ -908,67 +1328,62 @@
               "port": "8080",
               "path": [
                 "api",
-                "torneos"
+                "torneos",
+                "1"
               ]
-            }
+            },
+            "description": "PRECONDICIÓN\r\nSERVICIO LEVANTADO Y FUNCIONANDO\r\nID DE TORNEO EXISTE EN BASE DE DATOS\r\nRESPUESTA ESPERADA: 204 NO CONTENT"
           },
-          "status": "Created",
-          "code": 201,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "DELETE Borrar Torneo - Caso Correcto",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Torneo de Actualización de Prueba\",\r\n  \"cantidadMiembros\": 20,\r\n  \"fechaInicio\": \"2026-06-15\",\r\n  \"fechaTermino\": \"2026-06-20\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://100.48.91.14:8080/api/torneos/1",
+                  "protocol": "http",
+                  "host": [
+                    "100",
+                    "48",
+                    "91",
+                    "14"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "torneos",
+                    "1"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "",
+              "header": [],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": ""
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"id\": 1,\n    \"idTienda\": 2,\n    \"NombreTienda\": \"Geek World Store\",\n    \"TipoTorneo\": \"Master Cup Internacional\",\n    \"CantidadMiembros\": 64,\n    \"FechaInicio\": \"2026-08-20\",\n    \"FechaTermino\": \"2026-08-25\"\n}"
-        }
-      ]
-    },
-    {
-      "name": "POST Crear Torneo - Recurso inexistente",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"idTienda\": 99,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://100.48.91.14:8080/api/torneos",
-          "protocol": "http",
-          "host": [
-            "100",
-            "48",
-            "91",
-            "14"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "torneos"
           ]
         },
-        "description": "PRECONDICIÓN:\r\nAMBOS SERVICIOS (TIENDA Y TORNEO) LEVANTADOS Y FUNCIONALES\r\nRECURSO CON LA ID DE TIENDA NO EXISTE EN TIENDADB\r\nRESULTADO ESPERADO: 404 NOT FOUND"
-      },
-      "response": [
         {
           "name": "POST Crear Torneo - Recurso inexistente",
-          "originalRequest": {
+          "request": {
             "method": "POST",
             "header": [],
             "body": {
@@ -994,145 +1409,65 @@
                 "api",
                 "torneos"
               ]
-            }
-          },
-          "status": "Not Found",
-          "code": 404,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
-            }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"mensaje\": \"No se puede crear el torneo porque la tienda con ID 99 no existe.\",\n    \"error\": \"Not Found\",\n    \"timestamp\": \"2026-05-17T21:52:46.710246482\",\n    \"status\": 404\n}"
-        }
-      ]
-    },
-    {
-      "name": "DELETE Borrar Torneo - Caso Correcto",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://100.48.91.14:8080/api/torneos/1",
-          "protocol": "http",
-          "host": [
-            "100",
-            "48",
-            "91",
-            "14"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "torneos",
-            "1"
-          ]
-        },
-        "description": "PRECONDICIÓN\r\nSERVICIO LEVANTADO Y FUNCIONANDO\r\nID DE TORNEO EXISTE EN BASE DE DATOS\r\nRESPUESTA ESPERADA: 204 NO CONTENT"
-      },
-      "response": [
-        {
-          "name": "DELETE Borrar Torneo - Caso Correcto",
-          "originalRequest": {
-            "method": "DELETE",
-            "header": [],
-            "body": {
-              "mode": "raw",
-              "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Torneo de Actualización de Prueba\",\r\n  \"cantidadMiembros\": 20,\r\n  \"fechaInicio\": \"2026-06-15\",\r\n  \"fechaTermino\": \"2026-06-20\"\r\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
             },
-            "url": {
-              "raw": "http://100.48.91.14:8080/api/torneos/1",
-              "protocol": "http",
-              "host": [
-                "100",
-                "48",
-                "91",
-                "14"
-              ],
-              "port": "8080",
-              "path": [
-                "api",
-                "torneos",
-                "1"
-              ]
-            }
+            "description": "PRECONDICIÓN:\r\nAMBOS SERVICIOS (TIENDA Y TORNEO) LEVANTADOS Y FUNCIONALES\r\nRECURSO CON LA ID DE TIENDA NO EXISTE EN TIENDADB\r\nRESULTADO ESPERADO: 404 NOT FOUND"
           },
-          "status": "No Content",
-          "code": 204,
-          "_postman_previewlanguage": "",
-          "header": [],
-          "cookie": [
+          "response": [
             {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
+              "name": "POST Crear Torneo - Recurso inexistente",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"idTienda\": 99,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://100.48.91.14:8080/api/torneos",
+                  "protocol": "http",
+                  "host": [
+                    "100",
+                    "48",
+                    "91",
+                    "14"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "torneos"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"mensaje\": \"No se puede crear el torneo porque la tienda con ID 99 no existe.\",\n    \"error\": \"Not Found\",\n    \"timestamp\": \"2026-05-17T21:52:46.710246482\",\n    \"status\": 404\n}"
             }
-          ],
-          "body": ""
-        }
-      ]
-    },
-    {
-      "name": "PUT Cambiar Torneo - Caso Correcto",
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://100.48.91.14:8080/api/torneos/2",
-          "protocol": "http",
-          "host": [
-            "100",
-            "48",
-            "91",
-            "14"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "torneos",
-            "2"
           ]
         },
-        "description": "PRECONDICIÓN:\r\nSERVICIOS LEVANTADOS Y FUNCIONALES\r\nRECURSO EXISTE EN LA BASE DE DATOS\r\nRESPUESTA ESPERADA: 200OK"
-      },
-      "response": [
         {
           "name": "PUT Cambiar Torneo - Caso Correcto",
-          "originalRequest": {
+          "request": {
             "method": "PUT",
             "header": [],
             "body": {
@@ -1159,65 +1494,66 @@
                 "torneos",
                 "2"
               ]
-            }
+            },
+            "description": "PRECONDICIÓN:\r\nSERVICIOS LEVANTADOS Y FUNCIONALES\r\nRECURSO EXISTE EN LA BASE DE DATOS\r\nRESPUESTA ESPERADA: 200OK"
           },
-          "status": "OK",
-          "code": 200,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "PUT Cambiar Torneo - Caso Correcto",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"idTienda\": 1,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://100.48.91.14:8080/api/torneos/2",
+                  "protocol": "http",
+                  "host": [
+                    "100",
+                    "48",
+                    "91",
+                    "14"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "torneos",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 2,\n    \"idTienda\": 1,\n    \"NombreTienda\": \"Tienda Central Gaming\",\n    \"TipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\n    \"CantidadMiembros\": 16,\n    \"FechaInicio\": \"2026-06-05\",\n    \"FechaTermino\": \"2026-06-10\"\n}"
             }
-          ],
-          "cookie": [
-            {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
-            }
-          ],
-          "body": "{\n    \"id\": 2,\n    \"idTienda\": 1,\n    \"NombreTienda\": \"Tienda Central Gaming\",\n    \"TipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\n    \"CantidadMiembros\": 16,\n    \"FechaInicio\": \"2026-06-05\",\n    \"FechaTermino\": \"2026-06-10\"\n}"
-        }
-      ]
-    },
-    {
-      "name": "POST Crear Torneo - Servicio Caido",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"idTienda\": 3,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://100.48.91.14:8080/api/torneos",
-          "protocol": "http",
-          "host": [
-            "100",
-            "48",
-            "91",
-            "14"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "torneos"
           ]
         },
-        "description": "PRECONDICIÓN\r\nTORNEO LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nTIENDA CAIDO\r\nJSON CORRECTO\r\nRESPUESTA ESPERADA:\r\n503 SERVICE UNAVAILABLE"
-      },
-      "response": [
         {
           "name": "POST Crear Torneo - Servicio Caido",
-          "originalRequest": {
+          "request": {
             "method": "POST",
             "header": [],
             "body": {
@@ -1243,27 +1579,1811 @@
                 "api",
                 "torneos"
               ]
-            }
+            },
+            "description": "PRECONDICIÓN\r\nTORNEO LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nTIENDA CAIDO\r\nJSON CORRECTO\r\nRESPUESTA ESPERADA:\r\n503 SERVICE UNAVAILABLE"
           },
-          "status": "Service Unavailable",
-          "code": 503,
-          "_postman_previewlanguage": "json",
-          "header": [
+          "response": [
             {
-              "key": "Content-Type",
-              "value": "application/json",
-              "description": "",
-              "type": "text"
+              "name": "POST Crear Torneo - Servicio Caido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"idTienda\": 3,\r\n  \"tipoTorneo\": \"Clasificatorio de Apertura (Actualizado)\",\r\n  \"cantidadMiembros\": 16,\r\n  \"fechaInicio\": \"2026-06-05\",\r\n  \"fechaTermino\": \"2026-06-10\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://100.48.91.14:8080/api/torneos",
+                  "protocol": "http",
+                  "host": [
+                    "100",
+                    "48",
+                    "91",
+                    "14"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "torneos"
+                  ]
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"mensaje\": \"No se pudo validar la tienda porque el servidor remoto está inaccesible.\",\n    \"error\": \"Servicio Externo No Disponible\",\n    \"timestamp\": \"2026-05-17T22:12:50.649731785\",\n    \"status\": 503\n}"
             }
-          ],
-          "cookie": [
+          ]
+        },
+        {
+          "name": "POST Crear Torneo - Caso Exito",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"idTienda\": 2,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://100.48.91.14:8080/api/torneos",
+              "protocol": "http",
+              "host": [
+                "100",
+                "48",
+                "91",
+                "14"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "torneos"
+              ]
+            },
+            "description": "PRE-CONDICIÓN\r\nEL SERVICIO TIENDA LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nEl SERVICIO TORNEO LEVANTADO Y FUNCIONANDO CORRECTAMENTE\r\nEL JSON CON DATOS CORRECTOS\r\nRESULTADO ESPERADO: 201 CREATED"
+          },
+          "response": [
             {
-              "expires": "Invalid Date",
-              "domain": "",
-              "path": ""
+              "name": "POST Crear Torneo - Caso Exito",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n  \"idTienda\": 2,\r\n  \"tipoTorneo\": \"Master Cup Internacional\",\r\n  \"cantidadMiembros\": 64,\r\n  \"fechaInicio\": \"2026-08-20\",\r\n  \"fechaTermino\": \"2026-08-25\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://100.48.91.14:8080/api/torneos",
+                  "protocol": "http",
+                  "host": [
+                    "100",
+                    "48",
+                    "91",
+                    "14"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "torneos"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"idTienda\": 2,\n    \"NombreTienda\": \"Geek World Store\",\n    \"TipoTorneo\": \"Master Cup Internacional\",\n    \"CantidadMiembros\": 64,\n    \"FechaInicio\": \"2026-08-20\",\n    \"FechaTermino\": \"2026-08-25\"\n}"
             }
-          ],
-          "body": "{\n    \"mensaje\": \"No se pudo validar la tienda porque el servidor remoto está inaccesible.\",\n    \"error\": \"Servicio Externo No Disponible\",\n    \"timestamp\": \"2026-05-17T22:12:50.649731785\",\n    \"status\": 503\n}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Comprador",
+      "item": [
+        {
+          "name": "DELETE Eliminar comprador",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "file",
+              "file": {}
+            },
+            "url": {
+              "raw": "13.219.97.37:8084/api/v2/compradores/3",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8084",
+              "path": [
+                "api",
+                "v2",
+                "compradores",
+                "3"
+              ]
+            },
+            "description": "PROPÓSITO:  \nElimina un comprador existente del sistema mediante una solicitud DELETE al endpoint de compradores. Este request representa el caso de éxito para validar que el recurso sea eliminado correctamente.\n\nENDPOINT:  \nDELETE 13.219.97.37:8084/api/v2/compradores/3\n\nMÉTODO:  \nDELETE\n\nPATH PARAMETER:\n\n- id: identificador del comprador que se desea eliminar. En este caso, el valor utilizado es `3`.\n    \n\nCOMPORTAMIENTO ESPERADO:  \nLa solicitud no requiere body ni parámetros de consulta. Si el comprador existe, el servicio debe procesar la eliminación correctamente y devolver una respuesta acorde a la operación realizada.\n\nRESPUESTA ESPERADA:  \nSe espera un código de estado **200 OK** o **204 No Content**, según la implementación del servicio, indicando que el comprador fue eliminado exitosamente."
+          },
+          "response": [
+            {
+              "name": "Eliminar comprador",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "file",
+                  "file": {}
+                },
+                "url": {
+                  "raw": "13.219.97.37:8084/api/v2/compradores/3",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8084",
+                  "path": [
+                    "api",
+                    "v2",
+                    "compradores",
+                    "3"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:30:36 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        },
+        {
+          "name": "GET Listar",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8084/api/v2/compradores",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8084",
+              "path": [
+                "api",
+                "v2",
+                "compradores"
+              ]
+            },
+            "description": "PROPÓSITO:  \nObtiene el listado de compradores mediante una solicitud GET al recurso de compradores.\n\nENDPOINT:  \nGET 13.219.97.37:8084/api/v2/compradores\n\nMÉTODO:  \nGET\n\nPRECONDICIONES:\n\n- Servicio levantado y accesible.\n    \n- Endpoint de compradores disponible.\n    \n- Tener conectividad con la URL configurada.\n    \n\nRESPUESTA ESPERADA:  \n200 OK  \nRetorna el listado de compradores registrado por el servicio."
+          },
+          "response": [
+            {
+              "name": "listar comprador",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "13.219.97.37:8084/api/v2/compradores",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8084",
+                  "path": [
+                    "api",
+                    "v2",
+                    "compradores"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:22:10 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"UsuarioId\": 2,\n        \"nombreUsuario\": null,\n        \"correoUsuario\": null,\n        \"cantidadCompra\": 2,\n        \"historialCompra\": \"mish mihs mihs mish\",\n        \"mayorCompra\": 20000,\n        \"detalleMayor\": \"super pack clasic\",\n        \"menorCompra\": 50000,\n        \"detallemenor\": \"carpeta\"\n    },\n    {\n        \"id\": 2,\n        \"UsuarioId\": 2,\n        \"nombreUsuario\": null,\n        \"correoUsuario\": null,\n        \"cantidadCompra\": 2,\n        \"historialCompra\": \"mish mihs mihs mish\",\n        \"mayorCompra\": 20000,\n        \"detalleMayor\": \"super pack clasic\",\n        \"menorCompra\": 50000,\n        \"detallemenor\": \"carpeta\"\n    },\n    {\n        \"id\": 3,\n        \"UsuarioId\": 2,\n        \"nombreUsuario\": null,\n        \"correoUsuario\": null,\n        \"cantidadCompra\": 2,\n        \"historialCompra\": \"mish mihs mihs mish\",\n        \"mayorCompra\": 20000,\n        \"detalleMayor\": \"super pack clasic\",\n        \"menorCompra\": 50000,\n        \"detallemenor\": \"carpeta\"\n    },\n    {\n        \"id\": 4,\n        \"UsuarioId\": 10,\n        \"nombreUsuario\": null,\n        \"correoUsuario\": null,\n        \"cantidadCompra\": 2,\n        \"historialCompra\": \"mish mihs mihs mish\",\n        \"mayorCompra\": 20000,\n        \"detalleMayor\": \"super pack clasic\",\n        \"menorCompra\": 50000,\n        \"detallemenor\": \"carpeta\"\n    },\n    {\n        \"id\": 5,\n        \"UsuarioId\": 11,\n        \"nombreUsuario\": null,\n        \"correoUsuario\": null,\n        \"cantidadCompra\": 2,\n        \"historialCompra\": \"mish mihs mihs mish\",\n        \"mayorCompra\": 20000,\n        \"detalleMayor\": \"super pack clasic\",\n        \"menorCompra\": 50000,\n        \"detallemenor\": \"carpeta\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "POST comprador validar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8084/api/v2/compradores",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8084",
+              "path": [
+                "api",
+                "v2",
+                "compradores"
+              ]
+            },
+            "description": "PROPÓSITO:  \nValida la disponibilidad y el comportamiento del recurso de compradores mediante una solicitud POST al endpoint de compradores.\n\nENDPOINT:  \nPOST 13.219.97.37:8084/api/v2/compradores\n\nMÉTODO:  \nPOST\n\nHEADERS Y BODY ESPERADOS:  \nNo hay headers configurados actualmente en la solicitud. El body está definido en formato JSON raw y se encuentra vacío, por lo que este request se está utilizando en su estado actual sin datos de entrada configurados. Si el servicio requiere payload, este debe ajustarse manualmente sin alterar esta documentación.\n\nPRECONDICIONES:\n\n- Servicio de compradores levantado y accesible.\n    \n- Conectividad disponible hacia 13.219.97.37:8084.\n    \n- Endpoint /api/v2/compradores operativo.\n    \n- Si la validación requiere datos de entrada, estos deben ser provistos según las reglas del servicio.\n    \n\nRESPUESTAS ESPERADAS:\n\n- 200 OK o respuesta exitosa equivalente: el servicio procesa correctamente la solicitud.\n    \n- 400 Bad Request: la solicitud es inválida o incompleta. Existe un ejemplo guardado asociado a este escenario.\n    \n- 5xx Server Error: el servicio presenta un problema interno o no se encuentra disponible."
+          },
+          "response": [
+            {
+              "name": "comprador validar",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8084/api/v2/compradores",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8084",
+                  "path": [
+                    "api",
+                    "v2",
+                    "compradores"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:23:13 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"historialCompra\": \"ingrese el historial de las compras\",\n    \"menorCompra\": \"ingrese el valor de la menor compra\",\n    \"detallemenor\": \"ingrese el detalle del porducto con la menor compra\",\n    \"cantidadCompra\": \"ingrese la cantidad de compras realizdas\",\n    \"UsuarioId\": \"ingrea el id del usuario\",\n    \"mayorCompra\": \"ingrese el valor de la mayor compra\",\n    \"detalleMayor\": \"ingrese el detalle del producto mayor comprado\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "POST Crear comprador - CASO EXITO",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"UsuarioId\": 11,\r\n        \"cantidadCompra\": 2,\r\n        \"historialCompra\": \"mish mihs mihs mish\",\r\n        \"mayorCompra\": 20000,\r\n        \"detalleMayor\": \"super pack clasic\",\r\n        \"menorCompra\": 50000,\r\n        \"detallemenor\": \"carpeta\"\r\n}\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8084/api/v2/compradores",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8084",
+              "path": [
+                "api",
+                "v2",
+                "compradores"
+              ]
+            },
+            "description": "PROPÓSITO:  \nCrea un comprador en el sistema mediante una solicitud POST al endpoint de compradores. Este request representa el caso de éxito para la creación del recurso y permite validar que el servicio registre correctamente la información enviada.\n\nENDPOINT:  \nPOST 13.219.97.37:8084/api/v2/compradores\n\nMÉTODO:  \nPOST\n\nBODY ESPERADO:  \nLa solicitud utiliza un body en formato JSON con los siguientes campos:\n\n- UsuarioId: identificador del usuario asociado al comprador.\n    \n- cantidadCompra: cantidad de compras registradas o asociadas al comprador.\n    \n- historialCompra: texto descriptivo del historial de compra.\n    \n- mayorCompra: monto correspondiente a la compra de mayor valor.\n    \n- detalleMayor: descripción de la compra de mayor valor.\n    \n- menorCompra: monto correspondiente a la compra de menor valor.\n    \n- detallemenor: descripción de la compra de menor valor.\n    \n\nCOMPORTAMIENTO ESPERADO EN ÉXITO:  \nDe acuerdo con el ejemplo guardado, la operación exitosa debe responder con estado Created, indicando que el comprador fue creado correctamente en el sistema.\n\nVALIDACIONES RECOMENDADAS:  \nVerificar que la respuesta devuelva un código de estado exitoso asociado a creación del recurso.  \nConfirmar que el estado de la respuesta sea coherente con el ejemplo guardado como Created.  \nRevisar que el cuerpo de respuesta, si aplica, incluya los datos del comprador creado o algún identificador del nuevo recurso.  \nValidar que los datos enviados en el body hayan sido procesados correctamente por el servicio.\n\nNOTAS:  \nEste request está documentado como escenario de caso exitoso. Si se requiere validación más estricta, conviene contrastar el código de estado real y la estructura del response con la especificación funcional del servicio."
+          },
+          "response": [
+            {
+              "name": "Crear comprador",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"UsuarioId\": 11,\r\n        \"cantidadCompra\": 2,\r\n        \"historialCompra\": \"mish mihs mihs mish\",\r\n        \"mayorCompra\": 20000,\r\n        \"detalleMayor\": \"super pack clasic\",\r\n        \"menorCompra\": 50000,\r\n        \"detallemenor\": \"carpeta\"\r\n}\r\n\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8084/api/v2/compradores",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8084",
+                  "path": [
+                    "api",
+                    "v2",
+                    "compradores"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:27:52 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 6,\n    \"UsuarioId\": 11,\n    \"nombreUsuario\": \"fabian\",\n    \"correoUsuario\": \"fabifabieo@gmail.com\",\n    \"cantidadCompra\": 2,\n    \"historialCompra\": \"mish mihs mihs mish\",\n    \"mayorCompra\": 20000,\n    \"detalleMayor\": \"super pack clasic\",\n    \"menorCompra\": 50000,\n    \"detallemenor\": \"carpeta\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "PUT actualizar comprador - CASO EXITO",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"UsuarioId\": 6,\r\n    \"cantidadCompra\": 2,\r\n    \"historialCompra\": \"mish mihs mihs mish\",\r\n    \"mayorCompra\": 20000,\r\n    \"detalleMayor\": \"super pack clasic\",\r\n    \"menorCompra\": 50000,\r\n    \"detallemenor\": \"carpeta\"\r\n}\r\n\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8084/api/v2/compradores/3",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8084",
+              "path": [
+                "api",
+                "v2",
+                "compradores",
+                "3"
+              ]
+            },
+            "description": "PROPÓSITO:  \nActualiza la información de un comprador existente en el sistema mediante una solicitud PUT al endpoint de compradores. Este request representa el caso de éxito para validar que el recurso se modifique correctamente con los datos enviados.\n\nENDPOINT:  \nPUT 13.219.97.37:8084/api/v2/compradores/3\n\nMÉTODO:  \nPUT\n\nPATH PARAMETER:\n\n- id: identificador del comprador que se desea actualizar. En este caso, el valor utilizado es `3`.\n    \n\nBODY ESPERADO:  \nLa solicitud utiliza un body en formato JSON con los siguientes campos:\n\n- UsuarioId: identificador del usuario asociado al comprador.\n    \n- cantidadCompra: cantidad de compras registradas.\n    \n- historialCompra: descripción del historial de compras.\n    \n- mayorCompra: monto de la compra de mayor valor.\n    \n- detalleMayor: detalle asociado a la compra de mayor valor.\n    \n- menorCompra: monto de la compra de menor valor.\n    \n- detallemenor: detalle asociado a la compra de menor valor.\n    \n\nValores configurados en este caso:\n\n``` json\n{\n  \"UsuarioId\": 6,\n  \"cantidadCompra\": 2,\n  \"historialCompra\": \"mish mihs mihs mish\",\n  \"mayorCompra\": 20000,\n  \"detalleMayor\": \"super pack clasic\",\n  \"menorCompra\": 50000,\n  \"detallemenor\": \"carpeta\"\n}\n\n ```\n\nRESPUESTA ESPERADA:  \nSe espera una respuesta exitosa que indique que el comprador fue actualizado correctamente. Dependiendo de la implementación del servicio, la respuesta puede devolver el recurso actualizado o una confirmación de la operación con un código de estado exitoso."
+          },
+          "response": [
+            {
+              "name": "actualizar comprador",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"UsuarioId\": 6,\r\n    \"cantidadCompra\": 2,\r\n    \"historialCompra\": \"mish mihs mihs mish\",\r\n    \"mayorCompra\": 20000,\r\n    \"detalleMayor\": \"super pack clasic\",\r\n    \"menorCompra\": 50000,\r\n    \"detallemenor\": \"carpeta\"\r\n}\r\n\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8084/api/v2/compradores/3",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8084",
+                  "path": [
+                    "api",
+                    "v2",
+                    "compradores",
+                    "3"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:29:17 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 3,\n    \"UsuarioId\": 6,\n    \"nombreUsuario\": \"fabian\",\n    \"correoUsuario\": \"fabi.Lobos@gmail.com\",\n    \"cantidadCompra\": 2,\n    \"historialCompra\": \"mish mihs mihs mish\",\n    \"mayorCompra\": 20000,\n    \"detalleMayor\": \"super pack clasic\",\n    \"menorCompra\": 50000,\n    \"detallemenor\": \"carpeta\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vendedor",
+      "item": [
+        {
+          "name": "GET listar vendedor",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "13.219.97.37:8085/api/v2/vendedores",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8085",
+              "path": [
+                "api",
+                "v2",
+                "vendedores"
+              ]
+            },
+            "description": "PROPÓSITO:  \nObtiene el listado de vendedores registrados en el sistema mediante una solicitud GET al endpoint de vendedores. Este request representa el caso de éxito para validar la consulta general de recursos.\n\nENDPOINT:  \nGET 13.219.97.37:8085/api/v2/vendedores\n\nMÉTODO:  \nGET\n\nPARÁMETROS:  \nNo requiere path parameters, query parameters ni body para su ejecución.\n\nCOMPORTAMIENTO ESPERADO:  \nLa solicitud consulta el recurso de vendedores y retorna la colección completa de registros disponibles. Si la operación es exitosa, el servicio debe responder correctamente con la información solicitada.\n\nRESPUESTA ESPERADA:  \nSe espera una respuesta con código `200 OK` y un body en formato JSON que contenga la lista de vendedores registrados en el sistema."
+          },
+          "response": [
+            {
+              "name": "listar vendedor",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "13.219.97.37:8085/api/v2/vendedores",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8085",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vendedores"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:48:25 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"UsuarioId\": 11,\n        \"nombreUsuario\": null,\n        \"correoUsuario\": null,\n        \"cantidadVendido\": 2,\n        \"historialVendido\": \"chapitas,pack de cartas,cartas sueltas\",\n        \"mayorVendido\": 40000,\n        \"detalleMayor\": \"pack de cartas super delux\",\n        \"menorVendido\": 3,\n        \"detalleMenor\": \"chapitas de pokemon x3 5.000\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "POST validacion vendedor",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8085/api/v2/vendedores",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8085",
+              "path": [
+                "api",
+                "v2",
+                "vendedores"
+              ]
+            },
+            "description": "PROPÓSITO:  \nValida la creación o verificación de un vendedor en el sistema mediante una solicitud POST al endpoint de vendedores. Este request representa un caso de validación del recurso utilizando el cuerpo de la solicitud.\n\nENDPOINT:  \nPOST 13.219.97.37:8085/api/v2/vendedores\n\nMÉTODO:  \nPOST\n\nPARÁMETROS:  \nNo requiere path parameters ni query parameters para su ejecución.\n\nBODY:  \nLa solicitud utiliza un body en formato JSON. En el estado actual, el cuerpo enviado es un objeto vacío:  \n`{}`\n\nCOMPORTAMIENTO ESPERADO:  \nLa solicitud envía una validación al recurso de vendedores a través del endpoint indicado. La respuesta esperada dependerá de las reglas de negocio implementadas para la validación del vendedor y del contenido enviado en el body."
+          },
+          "response": []
+        },
+        {
+          "name": "POST crear vendedor - CASO EXITO",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"usuarioId\": 6,\r\n        \"cantidadVendido\": 2,\r\n        \"historialVendido\": \"chapitas,pack de cartas,cartas sueltas\",\r\n        \"mayorVendido\": 40000,\r\n        \"detalleMayor\": \"pack de cartas super delux\",\r\n        \"menorVendido\": 3,\r\n        \"detalleMenor\": \"chapitas de pokemon x3 5.000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8085/api/v2/vendedores",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8085",
+              "path": [
+                "api",
+                "v2",
+                "vendedores"
+              ]
+            },
+            "description": "PROPÓSITO:  \nCrea un nuevo vendedor en el sistema mediante una solicitud POST al endpoint de vendedores. Este request representa el caso de éxito para validar la creación correcta del recurso.\n\nENDPOINT:  \nPOST 13.219.97.37:8085/api/v2/vendedores\n\nMÉTODO:  \nPOST\n\nPARÁMETROS:  \nNo requiere path parameters ni query parameters para su ejecución.\n\nBODY:  \nLa solicitud utiliza un body en formato JSON con la información del vendedor a registrar. Los campos enviados actualmente son:\n\n- `usuarioId`: identificador del usuario asociado al vendedor.\n    \n- `cantidadVendido`: cantidad total de ventas registradas.\n    \n- `historialVendido`: historial resumido de productos vendidos.\n    \n- `mayorVendido`: valor de la venta de mayor monto.\n    \n- `detalleMayor`: detalle del producto o venta de mayor valor.\n    \n- `menorVendido`: valor de la venta de menor monto.\n    \n- `detalleMenor`: detalle del producto o venta de menor valor.\n    \n\nCOMPORTAMIENTO ESPERADO:  \nLa solicitud envía los datos del vendedor al recurso de vendedores y, si la operación es exitosa, registra correctamente el nuevo vendedor en el sistema."
+          },
+          "response": [
+            {
+              "name": "crear vendedor",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"usuarioId\": 6,\r\n        \"cantidadVendido\": 2,\r\n        \"historialVendido\": \"chapitas,pack de cartas,cartas sueltas\",\r\n        \"mayorVendido\": 40000,\r\n        \"detalleMayor\": \"pack de cartas super delux\",\r\n        \"menorVendido\": 3,\r\n        \"detalleMenor\": \"chapitas de pokemon x3 5.000\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8085/api/v2/vendedores",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8085",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vendedores"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:50:28 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 2,\n    \"UsuarioId\": 6,\n    \"nombreUsuario\": \"fabian\",\n    \"correoUsuario\": \"fabi.Lobos@gmail.com\",\n    \"cantidadVendido\": 2,\n    \"historialVendido\": \"chapitas,pack de cartas,cartas sueltas\",\n    \"mayorVendido\": 40000,\n    \"detalleMayor\": \"pack de cartas super delux\",\n    \"menorVendido\": 3,\n    \"detalleMenor\": \"chapitas de pokemon x3 5.000\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "PUT Actualizar vendedor",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"usuarioId\": 8,\r\n        \"cantidadVendido\": 2,\r\n        \"historialVendido\": \"chapitas,pack de cartas,cartas sueltas\",\r\n        \"mayorVendido\": 40000,\r\n        \"detalleMayor\": \"pack de cartas super delux\",\r\n        \"menorVendido\": 3,\r\n        \"detalleMenor\": \"chapitas de pokemon x3 5.000\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8085/api/v2/vendedores/2",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8085",
+              "path": [
+                "api",
+                "v2",
+                "vendedores",
+                "2"
+              ]
+            },
+            "description": "PROPÓSITO:  \nActualiza la información de un vendedor existente en el sistema mediante una solicitud PUT al endpoint de vendedores. Este request representa el caso de actualización de un recurso ya registrado.\n\nENDPOINT:  \nPUT 13.219.97.37:8085/api/v2/vendedores/2\n\nMÉTODO:  \nPUT\n\nPARÁMETROS:  \nRequiere un path parameter correspondiente al identificador del vendedor en la URL. En el ejemplo actual, el ID enviado es `2` en `/vendedores/2`.\n\nBODY:  \nLa solicitud utiliza un body en formato JSON con los datos del vendedor a actualizar. Los campos enviados actualmente son:\n\n- `usuarioId`: identificador del usuario asociado al vendedor.\n    \n- `cantidadVendido`: cantidad de ventas realizadas.\n    \n- `historialVendido`: historial resumido de productos vendidos.\n    \n- `mayorVendido`: monto del producto o venta de mayor valor.\n    \n- `detalleMayor`: descripción del producto o venta de mayor valor.\n    \n- `menorVendido`: monto del producto o venta de menor valor.\n    \n- `detalleMenor`: descripción del producto o venta de menor valor.\n    \n\nCOMPORTAMIENTO ESPERADO:  \nLa solicitud actualiza el recurso del vendedor indicado en la URL con la información enviada en el body. Si la operación es exitosa, el sistema debería reflejar los nuevos datos del vendedor actualizado."
+          },
+          "response": [
+            {
+              "name": "actaulizar vendedor",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"usuarioId\": 8,\r\n        \"cantidadVendido\": 2,\r\n        \"historialVendido\": \"chapitas,pack de cartas,cartas sueltas\",\r\n        \"mayorVendido\": 40000,\r\n        \"detalleMayor\": \"pack de cartas super delux\",\r\n        \"menorVendido\": 3,\r\n        \"detalleMenor\": \"chapitas de pokemon x3 5.000\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8085/api/v2/vendedores/2",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8085",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vendedores",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:51:37 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 2,\n    \"UsuarioId\": 8,\n    \"nombreUsuario\": \"Leo\",\n    \"correoUsuario\": \"leoleo@gmail.com\",\n    \"cantidadVendido\": 2,\n    \"historialVendido\": \"chapitas,pack de cartas,cartas sueltas\",\n    \"mayorVendido\": 40000,\n    \"detalleMayor\": \"pack de cartas super delux\",\n    \"menorVendido\": 3,\n    \"detalleMenor\": \"chapitas de pokemon x3 5.000\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "DELETE eliminar vendedor",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "13.219.97.37:8085/api/v2/vendedores/2",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8085",
+              "path": [
+                "api",
+                "v2",
+                "vendedores",
+                "2"
+              ]
+            },
+            "description": "Elimina un vendedor existente por su identificador.\n\n**Método:** `DELETE`  \n**Endpoint:** `13.219.97.37:8085/api/v2/vendedores/:id`\n\n**Parámetro de ruta**\n\n- `id`: identificador del vendedor que se desea eliminar. En la URL actual se observa el valor `2` como ejemplo.\n    \n\n**Comportamiento esperado**\n\n- Si el vendedor existe y se elimina correctamente, la respuesta esperada es **204 No Content**, sin cuerpo de respuesta.\n    \n- Si se envía un `id` inválido o inexistente, la API podría devolver un error según su implementación."
+          },
+          "response": [
+            {
+              "name": "elimiar",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "13.219.97.37:8085/api/v2/vendedores/2",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8085",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vendedores",
+                    "2"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 21:52:21 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vehiculo",
+      "item": [
+        {
+          "name": "listar vehiculos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "44.211.198.247:8082/api/v2/vehiculos",
+              "host": [
+                "44",
+                "211",
+                "198",
+                "247"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v2",
+                "vehiculos"
+              ]
+            },
+            "description": "Obtiene el listado de vehículos disponibles en la API.\n\n**Método:** `GET`  \n**Endpoint:** `44.211.198.247:8082/api/v2/vehiculos`\n\nNo requiere headers, parámetros de consulta ni variables de ruta.\n\n**Comportamiento esperado**\n\nSi la solicitud se procesa correctamente, la API debería responder exitosamente con la lista de vehículos.\n\nExiste un ejemplo guardado llamado `listar vehiculos` que sirve como referencia de respuesta."
+          },
+          "response": [
+            {
+              "name": "listar vehiculos",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "44.211.198.247:8082/api/v2/vehiculos",
+                  "host": [
+                    "44",
+                    "211",
+                    "198",
+                    "247"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vehiculos"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 22:25:03 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 9,\n        \"matricula\": \"43hzb3\",\n        \"marca\": \"mish\",\n        \"color\": \"rojo\",\n        \"version\": null,\n        \"ano\": 2025,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": \"1990-05-12\"\n    },\n    {\n        \"id\": 10,\n        \"matricula\": \"43hzb3\",\n        \"marca\": \"mish\",\n        \"color\": \"rojo\",\n        \"version\": null,\n        \"ano\": 2025,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": \"1990-05-12\"\n    },\n    {\n        \"id\": 11,\n        \"matricula\": \"43hzb3\",\n        \"marca\": \"mish\",\n        \"color\": \"rojo\",\n        \"version\": null,\n        \"ano\": 2025,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": \"1990-05-12\"\n    },\n    {\n        \"id\": 13,\n        \"matricula\": \"321243\",\n        \"marca\": \"tollota\",\n        \"color\": \"Rojo\",\n        \"version\": null,\n        \"ano\": 2024,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": null\n    },\n    {\n        \"id\": 14,\n        \"matricula\": \"321243\",\n        \"marca\": \"tollota\",\n        \"color\": null,\n        \"version\": null,\n        \"ano\": 2024,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": null\n    },\n    {\n        \"id\": 15,\n        \"matricula\": \"321243\",\n        \"marca\": \"tollota\",\n        \"color\": null,\n        \"version\": null,\n        \"ano\": 2024,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": null\n    },\n    {\n        \"id\": 16,\n        \"matricula\": \"321243\",\n        \"marca\": \"tollota\",\n        \"color\": null,\n        \"version\": null,\n        \"ano\": 2024,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": null\n    },\n    {\n        \"id\": 17,\n        \"matricula\": \"321243\",\n        \"marca\": \"tollota\",\n        \"color\": \"Rojo\",\n        \"version\": null,\n        \"ano\": 2024,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": null\n    },\n    {\n        \"id\": 18,\n        \"matricula\": \"AA2233\",\n        \"marca\": \"Toyota\",\n        \"color\": \"Rojo\",\n        \"version\": null,\n        \"ano\": 2024,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": \"2026-05-08\"\n    },\n    {\n        \"id\": 19,\n        \"matricula\": \"AA2233\",\n        \"marca\": \"Toyota\",\n        \"color\": \"Rojo\",\n        \"version\": null,\n        \"ano\": 2024,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": \"2026-05-08\"\n    },\n    {\n        \"id\": 20,\n        \"matricula\": \"AA2233\",\n        \"marca\": \"Toyota\",\n        \"color\": \"Rojo\",\n        \"version\": null,\n        \"ano\": 2024,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": \"2026-05-08\"\n    },\n    {\n        \"id\": 21,\n        \"matricula\": \"AB1234\",\n        \"marca\": \"Toyota\",\n        \"color\": \"Rojo\",\n        \"version\": null,\n        \"ano\": 2020,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": \"2024-05-01\"\n    },\n    {\n        \"id\": 22,\n        \"matricula\": \"AB1234\",\n        \"marca\": \"Nissan\",\n        \"color\": \"Rojo\",\n        \"version\": null,\n        \"ano\": 2020,\n        \"tipovehiculo\": null,\n        \"fechaingreso\": \"2024-05-01\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "validacion vehiculo",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "44.211.198.247:8082/api/v2/vehiculos",
+              "host": [
+                "44",
+                "211",
+                "198",
+                "247"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v2",
+                "vehiculos"
+              ]
+            },
+            "description": "Valida la creación o el contenido de un vehículo mediante una solicitud a la API.\n\n**Método:** `POST`  \n**Endpoint:** `44.211.198.247:8082/api/v2/vehiculos`\n\n**Body de la solicitud**\n\nLa petición utiliza un cuerpo en formato JSON. En la configuración actual se observa un body vacío como referencia.\n\n**Comportamiento esperado**\n\nSi los datos enviados no cumplen con las validaciones de la API, la respuesta debería indicar un error de validación.\n\nExiste un ejemplo guardado llamado `validacion vehiculo` que sirve como referencia de respuesta **Bad Request**."
+          },
+          "response": [
+            {
+              "name": "validacion vehiculo",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "44.211.198.247:8082/api/v2/vehiculos",
+                  "host": [
+                    "44",
+                    "211",
+                    "198",
+                    "247"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vehiculos"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 22:26:00 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"ano\": \"ingrese el año del vehiculo\",\n    \"tipovehiculo\": \"ingrese el tipo de vehiculo\",\n    \"matricula\": \"La matricula es obligatoria\",\n    \"marca\": \"la marca del auto es obligatorio\",\n    \"color\": \"inngrese el color del vehiculo\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "crear vehiculo",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"matricula\": \"43hzb3\",\r\n        \"marca\": \"mish\",\r\n        \"color\": \"rojo\",\r\n        \"version\": null,\r\n        \"ano\": 2025,\r\n        \"tipovehiculo\": \"4x4\",\r\n        \"fechaingreso\": \"1990-05-12\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "44.211.198.247:8082/api/v2/vehiculos",
+              "host": [
+                "44",
+                "211",
+                "198",
+                "247"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v2",
+                "vehiculos"
+              ]
+            },
+            "description": "Crea un nuevo vehículo en la API.\n\n**Método:** `POST`  \n**Endpoint:** `44.211.198.247:8082/api/v2/vehiculos`\n\n**Body de la solicitud**\n\nLa petición utiliza un cuerpo en formato JSON con los siguientes campos:\n\n- `matricula`: patente o identificador del vehículo.\n    \n- `marca`: marca del vehículo.\n    \n- `color`: color del vehículo.\n    \n- `version`: versión del vehículo. Puede enviarse como `null`.\n    \n- `ano`: año del vehículo.\n    \n- `tipovehiculo`: tipo de vehículo.\n    \n- `fechaingreso`: fecha de ingreso del vehículo en formato `YYYY-MM-DD`.\n    \n\n**Comportamiento esperado**\n\nSi los datos enviados son válidos, la API debería crear el vehículo correctamente y responder con un resultado exitoso.\n\nExiste un ejemplo guardado llamado `crear vehiculo` que sirve como referencia de respuesta."
+          },
+          "response": [
+            {
+              "name": "crear vehiculo",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"matricula\": \"43hzb3\",\r\n        \"marca\": \"mish\",\r\n        \"color\": \"rojo\",\r\n        \"version\": null,\r\n        \"ano\": 2025,\r\n        \"tipovehiculo\": \"4x4\",\r\n        \"fechaingreso\": \"1990-05-12\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "44.211.198.247:8082/api/v2/vehiculos",
+                  "host": [
+                    "44",
+                    "211",
+                    "198",
+                    "247"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vehiculos"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 22:27:26 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 24,\n    \"matricula\": \"43hzb3\",\n    \"marca\": \"mish\",\n    \"color\": \"rojo\",\n    \"version\": null,\n    \"ano\": 2025,\n    \"tipovehiculo\": \"4x4\",\n    \"fechaingreso\": \"1990-05-12\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "editar",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"matricula\": \"43hzb3\",\r\n        \"marca\": \"chevroles\",\r\n        \"color\": \"rojo\",\r\n        \"version\": null,\r\n        \"ano\": 2015,\r\n        \"tipovehiculo\": \"4x4\",\r\n        \"fechaingreso\": \"2025-05-12\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "44.211.198.247:8082/api/v2/vehiculos/24",
+              "host": [
+                "44",
+                "211",
+                "198",
+                "247"
+              ],
+              "port": "8082",
+              "path": [
+                "api",
+                "v2",
+                "vehiculos",
+                "24"
+              ]
+            },
+            "description": "Actualiza la información de un vehículo existente mediante su identificador.\n\n**Método:** `PUT`  \n**Endpoint:** `44.211.198.247:8082/api/v2/vehiculos/24`\n\n**Parámetro de ruta**\n\n- `id`: identificador del vehículo que se desea editar. En la URL actual se observa el valor `24` como ejemplo.\n    \n\n**Body de la solicitud**\n\nLa petición utiliza un cuerpo en formato JSON con los siguientes campos:\n\n- `matricula`: patente o identificador del vehículo.\n    \n- `marca`: marca del vehículo.\n    \n- `color`: color del vehículo.\n    \n- `version`: versión del vehículo. Puede enviarse como `null`.\n    \n- `ano`: año del vehículo.\n    \n- `tipovehiculo`: tipo de vehículo.\n    \n- `fechaingreso`: fecha de ingreso del vehículo.\n    \n\n**Comportamiento esperado**\n\nSi el vehículo existe y los datos enviados son válidos, la API debería actualizar correctamente el registro y responder exitosamente con la información modificada o una confirmación de la actualización.\n\nExiste un ejemplo guardado llamado `editar` que sirve como referencia de respuesta."
+          },
+          "response": [
+            {
+              "name": "editar",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"matricula\": \"43hzb3\",\r\n        \"marca\": \"chevroles\",\r\n        \"color\": \"rojo\",\r\n        \"version\": null,\r\n        \"ano\": 2015,\r\n        \"tipovehiculo\": \"4x4\",\r\n        \"fechaingreso\": \"2025-05-12\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "44.211.198.247:8082/api/v2/vehiculos/24",
+                  "host": [
+                    "44",
+                    "211",
+                    "198",
+                    "247"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vehiculos",
+                    "24"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 22:28:41 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 24,\n    \"matricula\": \"43hzb3\",\n    \"marca\": \"chevroles\",\n    \"color\": \"rojo\",\n    \"version\": null,\n    \"ano\": 2015,\n    \"tipovehiculo\": \"4x4\",\n    \"fechaingreso\": \"2025-05-12\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "eliminar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            },
+            "description": "Elimina un vehículo existente de la API mediante su identificador.\n\n**Método:** `DELETE`  \n**Endpoint:** `44.211.198.247:8082/api/v2/vehiculos/{id}`\n\n**Parámetro de ruta**\n\n- `id`: identificador del vehículo que se desea eliminar.\n    \n\n**Body de la solicitud**\n\nEsta petición no requiere body.\n\n**Comportamiento esperado**\n\nSi la solicitud se procesa correctamente, la API debería responder exitosamente sin contenido en el cuerpo.\n\nExiste un ejemplo guardado llamado `eliminar` con estado `No Content` que sirve como referencia de respuesta."
+          },
+          "response": [
+            {
+              "name": "eliminar",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "44.211.198.247:8082/api/v2/vehiculos/24",
+                  "host": [
+                    "44",
+                    "211",
+                    "198",
+                    "247"
+                  ],
+                  "port": "8082",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vehiculos",
+                    "24"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 22:29:03 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ENVIOS",
+      "item": [
+        {
+          "name": "Envio collecion",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8081/api/v2/envios",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v2",
+                "envios"
+              ]
+            },
+            "description": "Obtiene el listado de envíos disponibles en la API.\n\n**Método:** `GET`  \n**Endpoint:** `13.219.97.37:8081/api/v2/envios`\n\n**Precondiciones**\n\nLa API de envíos debe estar disponible y accesible desde Postman al momento de ejecutar la solicitud.\n\nNo requiere headers, parámetros de consulta ni variables de ruta.\n\n**Comportamiento esperado**\n\nSi la solicitud se procesa correctamente, la API debería responder exitosamente con la lista de envíos.\n\nExiste un ejemplo guardado llamado `Envio collecion` que sirve como referencia de respuesta."
+          },
+          "response": [
+            {
+              "name": "Envio collecion",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "13.219.97.37:8081/api/v2/envios",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "v2",
+                    "envios"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:06:11 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 3,\n        \"dirrecionenvi\": \"comuna el bosque calle los aviadores 321\",\n        \"comprador\": \"fabian rojas\",\n        \"vendedor\": \"Leonardo\",\n        \"tiendaorigen\": \"nex dimenxion\",\n        \"detalleproducto\": \"10x Pokemon TCG: Chaos Rising – Elite Trainer Box – Inglés [PREVENTA: 22/05/2026] (Case Sellado) $579.990\",\n        \"empresadeenvio\": \"Repartidor propio\"\n    },\n    {\n        \"id\": 4,\n        \"dirrecionenvi\": \"El bosque departamentos 10 \",\n        \"comprador\": \"Manuel \",\n        \"vendedor\": \"Javier\",\n        \"tiendaorigen\": \"Nex dimension\",\n        \"detalleproducto\": \"Pack xl de cartas de yu gi oh  \",\n        \"empresadeenvio\": \"Propio  \"\n    },\n    {\n        \"id\": 5,\n        \"dirrecionenvi\": \"El bosque departamentos 10 \",\n        \"comprador\": \"Manuel \",\n        \"vendedor\": \"Javier\",\n        \"tiendaorigen\": \"Nex dimension\",\n        \"detalleproducto\": \"Pack xl de cartas de yu gi oh  \",\n        \"empresadeenvio\": \"Propio  \"\n    },\n    {\n        \"id\": 6,\n        \"dirrecionenvi\": \"comuna el bosque calle los aviadores 321\",\n        \"comprador\": \"fabian rojas\",\n        \"vendedor\": \"Leonardo\",\n        \"tiendaorigen\": \"nex dimenxion\",\n        \"detalleproducto\": \"10x Pokemon TCG: Chaos Rising – Elite Trainer Box – Inglés [PREVENTA: 22/05/2026] (Case Sellado) $579.990\",\n        \"empresadeenvio\": \"Repartidor propio\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Envio validation",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8081/api/v2/envios",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v2",
+                "envios"
+              ]
+            },
+            "description": "Valida la creación o el contenido de un envío mediante una solicitud a la API.\n\n**Método:** `POST`  \n**Endpoint:** `13.219.97.37:8081/api/v2/envios`\n\n**Precondiciones**\n\nLa API de envíos debe estar disponible y accesible desde Postman al momento de ejecutar la solicitud.\n\n**Body de la solicitud**\n\nLa petición utiliza un cuerpo en formato JSON. En la configuración actual se observa un body vacío como referencia.\n\n**Comportamiento esperado**\n\nSi los datos enviados no cumplen con las validaciones de la API, la respuesta debería indicar un error de validación.\n\nExiste un ejemplo guardado llamado `Envio validation` con estado `Bad Request` que sirve como referencia de respuesta."
+          },
+          "response": [
+            {
+              "name": "Envio validation",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8081/api/v2/envios",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "v2",
+                    "envios"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:06:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"tiendaorigen\": \"debe ingresar una tienda de origen si el producto no es de una tienda origen Coloque tienda personal\",\n    \"comprador\": \"debe ingresar un comprador \",\n    \"dirrecionenvi\": \"la Dirrecion de envio no puede estar vacia\",\n    \"vendedor\": \"debe ingresar un vendedor\",\n    \"detalleproducto\": \"debe ingresar los dettales del producto \",\n    \"empresadeenvio\": \"debe ingresar la empresa de envio si no hay niguna colocar repartidor propio  \"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Envio agregar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"dirrecionenvi\": \"comuna el bosque calle los aviadores 321\",\r\n        \"comprador\": \"fabian rojas\",\r\n        \"vendedor\": \"Leonardo\",\r\n        \"tiendaorigen\": \"nex dimenxion\",\r\n        \"detalleproducto\": \"10x Pokemon TCG: Chaos Rising – Elite Trainer Box – Inglés [PREVENTA: 22/05/2026] (Case Sellado) $579.990\",\r\n        \"empresadeenvio\": \"Repartidor propio\"\r\n        \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8081/api/v2/envios",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v2",
+                "envios"
+              ]
+            },
+            "description": "PRE-CONDICION:\n\nSISTEMA DE ENVIO LEVANTADO\n\nJSON CORRECTO\n\nESPERADO:\n\n201 CREATED"
+          },
+          "response": [
+            {
+              "name": "Envio agregar",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"dirrecionenvi\": \"comuna el bosque calle los aviadores 321\",\r\n        \"comprador\": \"fabian rojas\",\r\n        \"vendedor\": \"Leonardo\",\r\n        \"tiendaorigen\": \"nex dimenxion\",\r\n        \"detalleproducto\": \"10x Pokemon TCG: Chaos Rising – Elite Trainer Box – Inglés [PREVENTA: 22/05/2026] (Case Sellado) $579.990\",\r\n        \"empresadeenvio\": \"Repartidor propio\"\r\n        \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8081/api/v2/envios",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "v2",
+                    "envios"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:07:00 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 8,\n    \"dirrecionenvi\": \"comuna el bosque calle los aviadores 321\",\n    \"comprador\": \"fabian rojas\",\n    \"vendedor\": \"Leonardo\",\n    \"tiendaorigen\": \"nex dimenxion\",\n    \"detalleproducto\": \"10x Pokemon TCG: Chaos Rising – Elite Trainer Box – Inglés [PREVENTA: 22/05/2026] (Case Sellado) $579.990\",\n    \"empresadeenvio\": \"Repartidor propio\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Envio actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n        \"dirrecionenvi\": \"comuna el bosque calle los aviadores 321\",\r\n        \"comprador\": \"leo rojas\",\r\n        \"vendedor\": \"Leonardo\",\r\n        \"tiendaorigen\": \"nex dimenxion\",\r\n        \"detalleproducto\": \"10x Pokemon TCG: Chaos Rising – Elite Trainer Box – Inglés [PREVENTA: 22/05/2026] (Case Sellado) $579.990\",\r\n        \"empresadeenvio\": \"Repartidor propio\"\r\n        \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8081/api/v2/envios/7",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v2",
+                "envios",
+                "7"
+              ]
+            },
+            "description": "PRE-CONDICIÓN:\n\nSERVICIO FUNCIONANDO\n\nRECURSO EXISTENTE\n\nJSON CORRECTO\n\nRESPUESTA ESPERADA:\n\n200 OK"
+          },
+          "response": [
+            {
+              "name": "Envio actualizar",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n        \"dirrecionenvi\": \"comuna el bosque calle los aviadores 321\",\r\n        \"comprador\": \"leo rojas\",\r\n        \"vendedor\": \"Leonardo\",\r\n        \"tiendaorigen\": \"nex dimenxion\",\r\n        \"detalleproducto\": \"10x Pokemon TCG: Chaos Rising – Elite Trainer Box – Inglés [PREVENTA: 22/05/2026] (Case Sellado) $579.990\",\r\n        \"empresadeenvio\": \"Repartidor propio\"\r\n        \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8081/api/v2/envios/8",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "v2",
+                    "envios",
+                    "8"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:07:28 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 8,\n    \"dirrecionenvi\": \"comuna el bosque calle los aviadores 321\",\n    \"comprador\": \"leo rojas\",\n    \"vendedor\": \"Leonardo\",\n    \"tiendaorigen\": \"nex dimenxion\",\n    \"detalleproducto\": \"10x Pokemon TCG: Chaos Rising – Elite Trainer Box – Inglés [PREVENTA: 22/05/2026] (Case Sellado) $579.990\",\n    \"empresadeenvio\": \"Repartidor propio\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Envio eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "13.219.97.37:8081/api/v2/envios/7",
+              "host": [
+                "13",
+                "219",
+                "97",
+                "37"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "v2",
+                "envios",
+                "7"
+              ]
+            },
+            "description": "PRE-CONDICIÓN:\n\nSERVICIO FUNCIONAL\n\nRECURSO EXISTENTE\n\nRESULTADO ESPERADO\n\n204 NO CONTENT"
+          },
+          "response": [
+            {
+              "name": "Envio eliminar",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "13.219.97.37:8081/api/v2/envios/8",
+                  "host": [
+                    "13",
+                    "219",
+                    "97",
+                    "37"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "v2",
+                    "envios",
+                    "8"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Sun, 17 May 2026 20:07:48 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
         }
       ]
     }
