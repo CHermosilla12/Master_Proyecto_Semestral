@@ -18,7 +18,6 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 | Tienda      | Instancia_2:8081      | TiendaDB      | CRUD de Tienda | https://github.com/CHermosilla12/tiendaservice |
 | Proveedores | Instancia_2:8082 | ProveedoresDB | CRUD de Proveedores | https://github.com/CHermosilla12/proveedorservice |
 | Carrito     | Instancia_2:8083     | CarritoDB     | CRUD de Carrito | https://github.com/CHermosilla12/carritoservice |
-| Carta       | Instancia_2:8084       | CartaDB   | CRUD de Carta |
 | Torneos     | Instancia_3:8080     | TorneoDB   | CRUD de Torneo |
 | Subasta     | Instancia_3:8081     | SubastaDB | CRUD de Subasta |
 | Venta   | Instancia_3:8082       | VentaDB | CRUD de Venta  |
@@ -34,11 +33,12 @@ al levantamiento
 | Origen | Destino | Método | Endpoint | DTO |
 |---|---|---|---|---|
 | Carrito | Producto | GET | /api/productos/{id} | ProductoDTO |
-| ... | ... | ... | ... | ... |
+| Torneo | Tienda | GET | /api/v2/tienda/{/id} | TiendaDTO |
+| | | | | |
 
 ### Tecnología utilizada
 - Cliente REST: **Feign Client** (justificación: elimina el código repetitivo al permitirte declarar la comunicación HTTP mediante interfaces simples anotadas, abstrayéndote por completo de configurar URLs o serializaciones manuales.)
-- Manejo de errores: `@ControllerAdvice` + excepciones personalizadas
+- Manejo de errores: `@RestControllerAdvice` + excepciones personalizadas
 - Logs: SLF4J en cada llamada externa
 - Pruebas de integración: colección Postman en `/postman/hito2-integracion.json`
 
