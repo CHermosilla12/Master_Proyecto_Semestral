@@ -2,6 +2,15 @@
 Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces a otros repositorios y README
 
 # Proyecto Semestral: NextCard
+
+
+# Proyecto Semestral: NextCard
+
+... [secciones existentes del Hito 1.5] ...
+
+## 🔗 Comunicación entre microservicios (Hito 2)
+
+### Diagrama de dependencias
 ## Integrantes: Felipe Acuña, Constanza Carrasco, Cristóbal Hermosilla
 
 ### Estado del Sistema
@@ -29,3 +38,25 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 -antes de inciar nuevamente los docker realizar un `docker compose down -v` en cada parte de modulo para que no quede con datos antiguos que pueden afectar 
 al levantamiento 
 
+### Tabla de contratos
+| Origen | Destino | Método | Endpoint | DTO |
+|---|---|---|---|---|
+| Carrito | Producto | GET | /api/productos/{id} | ProductoDTO |
+| ... | ... | ... | ... | ... |
+
+### Tecnología utilizada
+- Cliente REST: **Feign Client** (justificación: elimina el código repetitivo al permitirte declarar la comunicación HTTP mediante interfaces simples anotadas, abstrayéndote por completo de configurar URLs o serializaciones manuales.)
+- Manejo de errores: `@ControllerAdvice` + excepciones personalizadas
+- Logs: SLF4J en cada llamada externa
+- Pruebas de integración: colección Postman en `/postman/hito2-integracion.json`
+
+### Escenario de despliegue
+- [ ] Escenario A — Todos los servicios en una sola instancia EC2
+- [X] Escenario B — Servicios distribuidos en múltiples instancias EC2
+  - Security Groups configurados: sí
+
+### Cómo probar la integración
+1. Levantar todos los servicios: `docker compose up -d`
+2. Importar `postman/hito2-integracion.json` en Postman
+3. Ejecutar el flujo "Crear cita - caso éxito"
+4. Para probar resiliencia: `docker stop catalogoservice` y reintentar
