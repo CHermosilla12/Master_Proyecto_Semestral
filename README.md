@@ -19,8 +19,8 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 | Proveedores | Instancia_2:8082 | ProveedoresDB | CRUD de Proveedores | https://github.com/CHermosilla12/proveedorservice |
 | Carrito     | Instancia_2:8083     | CarritoDB     | CRUD de Carrito | https://github.com/CHermosilla12/carritoservice |
 | Torneos     | Instancia_3:8080     | TorneoDB   | CRUD de Torneo |
-| Subasta     | Instancia_3:8081     | SubastaDB | CRUD de Subasta |
-| Venta   | Instancia_3:8082       | VentaDB | CRUD de Venta  |
+| Subasta     | Instancia_3:8085     | SubastaDB | CRUD de Subasta |
+| Venta   | Instancia_3:8086       | VentaDB | CRUD de Venta  |
 
 ### Despliegue Técnico
 - **Instancias** 3 instancias de AWS EC2 t3.large (Ubuntu 24.04)
