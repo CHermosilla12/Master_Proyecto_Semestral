@@ -1114,6 +1114,95 @@
               "body": "[\n    {\n        \"id\": 2,\n        \"nombre\": \"Matias\",\n        \"apellidoP\": \"Castillo\",\n        \"apellidoM\": \"Rojas\",\n        \"nombreUser\": \"Mati6767\",\n        \"correo\": \"mati.rojas@gmail.com\",\n        \"password\": \"sixseven\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador,Vendedor\"\n    },\n    {\n        \"id\": 6,\n        \"nombre\": \"fabian\",\n        \"apellidoP\": \"Villa\",\n        \"apellidoM\": \"Lobos\",\n        \"nombreUser\": \"Mati6767\",\n        \"correo\": \"fabi.Lobos@gmail.com\",\n        \"password\": \"32321\",\n        \"edad\": 34,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador,Vendedor\"\n    },\n    {\n        \"id\": 7,\n        \"nombre\": \"Leo\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"leoig21\",\n        \"correo\": \"leoleo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    },\n    {\n        \"id\": 8,\n        \"nombre\": \"Leo\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"leoig21\",\n        \"correo\": \"leoleo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    },\n    {\n        \"id\": 9,\n        \"nombre\": \"Leo\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"leoig21\",\n        \"correo\": \"leoleo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    },\n    {\n        \"id\": 10,\n        \"nombre\": \"Leo\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"leoig21\",\n        \"correo\": \"leoleo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    },\n    {\n        \"id\": 11,\n        \"nombre\": \"fabian\",\n        \"apellidoP\": \"Ignacio\",\n        \"apellidoM\": \"Fuentes\",\n        \"nombreUser\": \"fabiooig21\",\n        \"correo\": \"fabifabieo@gmail.com\",\n        \"password\": \"mish mihs\",\n        \"edad\": 25,\n        \"genero\": \"Masculino\",\n        \"tipoUser\": \"Comprador\"\n    }\n]"
             }
           ]
+        },
+        {
+          "name": "GET buscar Usuario - Recurso No encontrado",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://52.90.173.162:8080/api/v2/usuarios/99",
+              "protocol": "http",
+              "host": [
+                "52",
+                "90",
+                "173",
+                "162"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "v2",
+                "usuarios",
+                "99"
+              ]
+            },
+            "description": "PRE-CONDICIONES:\n\nSERVICIO FUNCIONAL\n\nRECURSO NO EXISTE EN USUARIODB\n\nRESPUESTA: 404 NOT FOUND"
+          },
+          "response": [
+            {
+              "name": "GET buscar Usuario - Recurso No encontrado",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "http://44.201.120.61:8080/api/v2/usuarios/99",
+                  "protocol": "http",
+                  "host": [
+                    "44",
+                    "201",
+                    "120",
+                    "61"
+                  ],
+                  "port": "8080",
+                  "path": [
+                    "api",
+                    "v2",
+                    "usuarios",
+                    "99"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"error\": \"Usuario no encontrado:99\"\n}"
+            }
+          ]
         }
       ]
     },
@@ -2159,6 +2248,184 @@
               "body": "{\n    \"id\": 3,\n    \"UsuarioId\": 6,\n    \"nombreUsuario\": \"fabian\",\n    \"correoUsuario\": \"fabi.Lobos@gmail.com\",\n    \"cantidadCompra\": 2,\n    \"historialCompra\": \"mish mihs mihs mish\",\n    \"mayorCompra\": 20000,\n    \"detalleMayor\": \"super pack clasic\",\n    \"menorCompra\": 50000,\n    \"detallemenor\": \"carpeta\"\n}"
             }
           ]
+        },
+        {
+          "name": "POST Crear Usuario - Recurso No Encontrado",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"UsuarioId\": 13,\r\n    \"cantidadCompra\": 2,\r\n    \"historialCompra\": \"mish mihs mihs mish\",\r\n    \"mayorCompra\": 20000,\r\n    \"detalleMayor\": \"super pack clasic\",\r\n    \"menorCompra\": 50000,\r\n    \"detallemenor\": \"carpeta\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://52.90.173.162:8084/api/v2/compradores",
+              "protocol": "http",
+              "host": [
+                "52",
+                "90",
+                "173",
+                "162"
+              ],
+              "port": "8084",
+              "path": [
+                "api",
+                "v2",
+                "compradores"
+              ]
+            },
+            "description": "PRE-CONDICIÓN:\r\nSERVICIO DE USUARIO Y COMPRADOR FUNCIONANDO\r\nJSON CORRECTO PERO ID DE USUARIO NO EXISTENTE\r\nESPERADO: 404 NOT FOUND"
+          },
+          "response": [
+            {
+              "name": "POST Crear Usuario - Recurso No Encontrado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"UsuarioId\": 13,\r\n    \"cantidadCompra\": 2,\r\n    \"historialCompra\": \"mish mihs mihs mish\",\r\n    \"mayorCompra\": 20000,\r\n    \"detalleMayor\": \"super pack clasic\",\r\n    \"menorCompra\": 50000,\r\n    \"detallemenor\": \"carpeta\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://52.90.173.162:8084/api/v2/compradores",
+                  "protocol": "http",
+                  "host": [
+                    "52",
+                    "90",
+                    "173",
+                    "162"
+                  ],
+                  "port": "8084",
+                  "path": [
+                    "api",
+                    "v2",
+                    "compradores"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"error\": \"Usuario no encotrado13\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "POST Crear Comprador - SERVICIO CAIDO",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"UsuarioId\": 2,\r\n    \"cantidadCompra\": 2,\r\n    \"historialCompra\": \"mish mihs mihs mish\",\r\n    \"mayorCompra\": 20000,\r\n    \"detalleMayor\": \"super pack clasic\",\r\n    \"menorCompra\": 50000,\r\n    \"detallemenor\": \"carpeta\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://52.90.173.162:8084/api/v2/compradores",
+              "protocol": "http",
+              "host": [
+                "52",
+                "90",
+                "173",
+                "162"
+              ],
+              "port": "8084",
+              "path": [
+                "api",
+                "v2",
+                "compradores"
+              ]
+            },
+            "description": "PRECONDICIÓN:\r\nSERVICIO COMPRADOR FUNCIONANDO\r\nSERVICIO USUARIO APAGADO\r\nJSON CORRECTO\r\nESPERADO: 503 SERVICE UNAVAILABLE"
+          },
+          "response": [
+            {
+              "name": "POST Crear Comprador - SERVICIO CAIDO",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"UsuarioId\": 2,\r\n    \"cantidadCompra\": 2,\r\n    \"historialCompra\": \"mish mihs mihs mish\",\r\n    \"mayorCompra\": 20000,\r\n    \"detalleMayor\": \"super pack clasic\",\r\n    \"menorCompra\": 50000,\r\n    \"detallemenor\": \"carpeta\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://52.90.173.162:8084/api/v2/compradores",
+                  "protocol": "http",
+                  "host": [
+                    "52",
+                    "90",
+                    "173",
+                    "162"
+                  ],
+                  "port": "8084",
+                  "path": [
+                    "api",
+                    "v2",
+                    "compradores"
+                  ]
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"error\": \"servicio de usuari no dispobibl,intnte nuevamente \"\n}"
+            }
+          ]
         }
       ]
     },
@@ -2523,6 +2790,184 @@
               ],
               "cookie": [],
               "body": ""
+            }
+          ]
+        },
+        {
+          "name": "POST Crear Vendedor - Recurso no Encontrado",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"detalleMenor\": \"ingrese el detalle del valor menos vendido\",\r\n    \"historialVendido\": \"ingrese el historial de vendidos\",\r\n    \"usuarioId\": 14,\r\n    \"cantidadVendido\": 32,\r\n    \"detalleMayor\": \"ingrese el detalle del valor mas vendido\",\r\n    \"menorVendido\": 21,\r\n    \"mayorVendido\": 312\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://52.90.173.162:8085/api/v2/vendedores",
+              "protocol": "http",
+              "host": [
+                "52",
+                "90",
+                "173",
+                "162"
+              ],
+              "port": "8085",
+              "path": [
+                "api",
+                "v2",
+                "vendedores"
+              ]
+            },
+            "description": "PRE-CONDICIÓN\r\nSERVICIO DE USUARIO Y VENDEDOR FUNCIONANDO\r\nJSON CORRECTO PERO ID DE USUARIO NO EXISTE EN USUARIODB\r\nESPERADO: 404 NOT FOUND"
+          },
+          "response": [
+            {
+              "name": "POST Crear Vendedor - Recurso no Encontrado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"detalleMenor\": \"ingrese el detalle del valor menos vendido\",\r\n    \"historialVendido\": \"ingrese el historial de vendidos\",\r\n    \"usuarioId\": 14,\r\n    \"cantidadVendido\": 32,\r\n    \"detalleMayor\": \"ingrese el detalle del valor mas vendido\",\r\n    \"menorVendido\": 21,\r\n    \"mayorVendido\": 312\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://52.90.173.162:8085/api/v2/vendedores",
+                  "protocol": "http",
+                  "host": [
+                    "52",
+                    "90",
+                    "173",
+                    "162"
+                  ],
+                  "port": "8085",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vendedores"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"error\": \"Usuario no encotrado14\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "POST crear vendedor - Servicio Caido",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"detalleMenor\": \"ingrese el detalle del valor menos vendido\",\r\n    \"historialVendido\": \"ingrese el historial de vendidos\",\r\n    \"usuarioId\": 14,\r\n    \"cantidadVendido\": 32,\r\n    \"detalleMayor\": \"ingrese el detalle del valor mas vendido\",\r\n    \"menorVendido\": 21,\r\n    \"mayorVendido\": 312\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://52.90.173.162:8085/api/v2/vendedores",
+              "protocol": "http",
+              "host": [
+                "52",
+                "90",
+                "173",
+                "162"
+              ],
+              "port": "8085",
+              "path": [
+                "api",
+                "v2",
+                "vendedores"
+              ]
+            },
+            "description": "PRECONDICIÓN:\r\nSERVICIO DE VENDEDOR FUNCIONANDO\r\nSERVICIO DE USUARIO APAGADO O CAIDO\r\nJSON CORRECTO\r\nESPERA: 503 SERVICE UNAVAILABLE"
+          },
+          "response": [
+            {
+              "name": "POST crear vendedor - Servicio Caido",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"detalleMenor\": \"ingrese el detalle del valor menos vendido\",\r\n    \"historialVendido\": \"ingrese el historial de vendidos\",\r\n    \"usuarioId\": 14,\r\n    \"cantidadVendido\": 32,\r\n    \"detalleMayor\": \"ingrese el detalle del valor mas vendido\",\r\n    \"menorVendido\": 21,\r\n    \"mayorVendido\": 312\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://52.90.173.162:8085/api/v2/vendedores",
+                  "protocol": "http",
+                  "host": [
+                    "52",
+                    "90",
+                    "173",
+                    "162"
+                  ],
+                  "port": "8085",
+                  "path": [
+                    "api",
+                    "v2",
+                    "vendedores"
+                  ]
+                }
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"error\": \"servicio de usuari no dispobibl,intnte nuevamente \"\n}"
             }
           ]
         }
