@@ -28,6 +28,8 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 -antes de inciar nuevamente los docker realizar un `docker compose down -v` en cada parte de modulo para que no quede con datos antiguos que pueden afectar 
 al levantamiento 
 
+### Diagrama de dependencias
+<img width="5760" height="3240" alt="Mapa de microservicios" src="https://github.com/user-attachments/assets/497f2796-c98e-404e-b616-86d9f68e0df3" />
 ### Tabla de contratos
 | Origen | Destino | Método | Endpoint | DTO |
 |---|---|---|---|---|
