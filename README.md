@@ -29,7 +29,8 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 al levantamiento 
 
 ### Diagrama de dependencias
-<img width="5760" height="3240" alt="Mapa de microservicios" src="https://github.com/user-attachments/assets/497f2796-c98e-404e-b616-86d9f68e0df3" />
+<img width="5280" height="2970" alt="Mapa de microservicios (1)" src="https://github.com/user-attachments/assets/25fd2461-d188-4301-8a2b-2da3a7b6717c" />
+
 
 ### Tabla de contratos
 | Origen | Destino | Método | Endpoint | DTO |
