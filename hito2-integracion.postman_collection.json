@@ -3831,6 +3831,442 @@
           ]
         }
       ]
+    },
+    {
+      "name": "Subastas",
+      "item": [
+        {
+          "name": "listar",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "52.91.140.163:8081/api/subastas",
+              "host": [
+                "52",
+                "91",
+                "140",
+                "163"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "subastas"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "listar",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "52.91.140.163:8081/api/subastas",
+                  "host": [
+                    "52",
+                    "91",
+                    "140",
+                    "163"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "subastas"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 May 2026 02:59:45 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"producto\": \"Laptop Gamer\",\n        \"pujaMinima\": 50000,\n        \"pujaMayor\": 0,\n        \"estado\": \"ACTIVA\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Crear",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"producto\": \"Laptop Gamer\",\r\n  \"pujaMinima\": 50000,\r\n  \"pujaMayor\": 0,\r\n  \"estado\": \"ACTIVA\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "52.91.140.163:8081/api/subastas",
+              "host": [
+                "52",
+                "91",
+                "140",
+                "163"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "subastas"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Crear",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n   \"producto\": \"Laptop Gamer\",\r\n  \"pujaMinima\": 50000,\r\n  \"pujaMayor\": 0,\r\n  \"estado\": \"ACTIVA\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "52.91.140.163:8081/api/subastas",
+                  "host": [
+                    "52",
+                    "91",
+                    "140",
+                    "163"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "subastas"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 May 2026 02:59:23 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"producto\": \"Laptop Gamer\",\n    \"pujaMinima\": 50000,\n    \"pujaMayor\": 0,\n    \"estado\": \"ACTIVA\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "validar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "52.91.140.163:8081/api/subastas",
+              "host": [
+                "52",
+                "91",
+                "140",
+                "163"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "subastas"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "validar",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "52.91.140.163:8081/api/subastas",
+                  "host": [
+                    "52",
+                    "91",
+                    "140",
+                    "163"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "subastas"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 May 2026 03:06:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "close"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"error\": \"Validación fallida\",\n    \"errors\": {\n        \"pujaMinima\": \"must not be null\",\n        \"producto\": \"El nombre es obligatorio\"\n    },\n    \"timestamp\": \"2026-05-18T03:06:39.194073156\",\n    \"status\": 400\n}"
+            }
+          ]
+        },
+        {
+          "name": "editar",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"producto\": \"ps5 \",\r\n    \"pujaMinima\": 50000,\r\n    \"pujaMayor\": 0,\r\n    \"estado\": \"ACTIVA\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "52.91.140.163:8081/api/subastas/2",
+              "host": [
+                "52",
+                "91",
+                "140",
+                "163"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "subastas",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "editar",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"producto\": \"ps5 \",\r\n    \"pujaMinima\": 50000,\r\n    \"pujaMayor\": 0,\r\n    \"estado\": \"ACTIVA\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "52.91.140.163:8081/api/subastas/2",
+                  "host": [
+                    "52",
+                    "91",
+                    "140",
+                    "163"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "subastas",
+                    "2"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 May 2026 03:04:17 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 2,\n    \"producto\": \"ps5 \",\n    \"pujaMinima\": 50000,\n    \"pujaMayor\": 0,\n    \"estado\": \"ACTIVA\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "eliminar",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "52.91.140.163:8081/api/subastas/2",
+              "host": [
+                "52",
+                "91",
+                "140",
+                "163"
+              ],
+              "port": "8081",
+              "path": [
+                "api",
+                "subastas",
+                "2"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "eliminar",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "52.91.140.163:8081/api/subastas/2",
+                  "host": [
+                    "52",
+                    "91",
+                    "140",
+                    "163"
+                  ],
+                  "port": "8081",
+                  "path": [
+                    "api",
+                    "subastas",
+                    "2"
+                  ]
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "_postman_previewlanguage": "Text",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 May 2026 03:05:00 GMT"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=60"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
