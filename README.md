@@ -19,8 +19,7 @@ Repositorio Maestro del proyecto semestral de Desarrollo FullStack I con enlaces
 | Proveedores | Instancia_2:8082 | ProveedoresDB | CRUD de Proveedores | https://github.com/CHermosilla12/proveedorservice |
 | Carrito     | Instancia_2:8083     | CarritoDB     | CRUD de Carrito | https://github.com/CHermosilla12/carritoservice |
 | Torneos     | Instancia_3:8080     | TorneoDB   | CRUD de Torneo Torneos | https://github.com/Constanza05-ctrl/torneoservice |
-| Subasta     | Instancia_3:8081     | SubastaDB | CRUD de Subasta Subasta |https://github.com/Constanza05-ctrl/subastaservice |
-| Venta   | Instancia_3:8082       | VentaDB | CRUD de Venta  | https://github.com/Constanza05-ctrl/ventaservice |
+| Subasta     | Instancia_3:8081     | SubastaDB | CRUD de Subasta Subasta |https://github.com/CHermosilla12/subastasservice |
 ### Despliegue Técnico
 - **Instancias** 3 instancias de AWS EC2 t3.large (Ubuntu 24.04)
 - **Comando de inicio:** `docker compose up -d` en cada carpeta de modulo
